@@ -4628,124 +4628,367 @@ paths:
                                                                     type: string
                                                         vtKaydet:
                                                             type: boolean
+                                vtKaydet:
+                                    type: boolean
+                                fatura:
+                                    type: object
+                                    properties:
+                                        ID:
+                                            type: integer
+                                        IDGUID:
+                                            type: string
+                                        CARI_ID:
+                                            type: integer
+                                        UNVAN:
+                                            type: string
+                                        ADRES:
+                                            type: string
+                                        VD:
+                                            type: string
+                                        VN:
+                                            type: string
+                                        FAT_TARIH:
+                                            type: string
+                                            format: date-time
+                                        SEVK_TARIH:
+                                            type: string
+                                            format: date-time
+                                        VADE_TARIH:
+                                            type: string
+                                            format: date-time
+                                        SAAT:
+                                            type: string
+                                        TOPLAM:
+                                            type: number
+                                            format: decimal
+                                        KDV:
+                                            type: number
+                                            format: decimal
+                                        GTOPLAM:
+                                            type: number
+                                            format: decimal
+                                        YAZI:
+                                            type: string
+                                        IL:
+                                            type: string
+                                        ILCE:
+                                            type: string
+                                        odeme_sekli:
+                                            type: string
+                                        FATURA_TURU:
+                                            type: string
+                                        YETKILI:
+                                            type: string
+                                        odenen:
+                                            type: number
+                                            format: decimal
+                                        EVRAK_NO:
+                                            type: string
+                                        ALINAN:
+                                            type: number
+                                            format: decimal
+                                        MALIYET:
+                                            type: number
+                                            format: decimal
+                                        ISKONTO:
+                                            type: number
+                                            format: decimal
+                                        fisno:
+                                            type: integer
+                                        tel:
+                                            type: string
+                                        fax:
+                                            type: string
+                                        cep:
+                                            type: string
+                                        postakodu:
+                                            type: string
+                                        sevk_adresi:
+                                            type: string
+                                        aciklama:
+                                            type: string
+                                        kullaniciAdi:
+                                            type: string
+                                        subeAdi:
+                                            type: string
+                                        ticaretsicilno:
+                                            type: string
+                                        tevkifat_oran:
+                                            type: string
+                                        tevkifat_tutar:
+                                            type: number
+                                            format: decimal
+                                        cari_kod:
+                                            type: string
+                                        faturaResimYolu:
+                                            type: string
+                                        otv_tutar:
+                                            type: number
+                                            format: decimal
+                                        oiv_tutar:
+                                            type: number
+                                            format: decimal
+                                        eFaturaNo:
+                                            type: string
+                                        eFaturaSenaryo:
+                                            type: string
+                                        eFaturaTipi:
+                                            type: string
+                                        eFaturaDurum:
+                                            type: string
+                                        eFaturaSenaryoTipi:
+                                            type: string
+                                        eFaturaMailGonderildiMi:
+                                            type: boolean
+                                        IrsaliyeFaturalandi:
+                                            type: boolean
+                                        CARI_GRUP:
+                                            type: string
+                                        CARI_MAIL:
+                                            type: string
+                                        WebAdres:
+                                            type: string
+                                        ozelAlan1:
+                                            type: string
+                                        ozelAlan2:
+                                            type: string
+                                        stopajOran1:
+                                            type: string
+                                        stopajTutar1:
+                                            type: string
+                                        stopajOran2:
+                                            type: string
+                                        stopajTutar2:
+                                            type: string
+                                        stopajOran3:
+                                            type: string
+                                        stopajTutar3:
+                                            type: string
+                                        stopajOran4:
+                                            type: string
+                                        stopajTutar4:
+                                            type: string
+                                        kdvOran1:
+                                            type: number
+                                            format: decimal
+                                        kdvOran8:
+                                            type: number
+                                            format: decimal
+                                        kdvOran18:
+                                            type: number
+                                            format: decimal
+                                        paraBirimiEfatura:
+                                            type: string
+                                        dovizKur:
+                                            type: number
+                                            format: decimal
+                                        eIlaveFaturaTipi:
+                                            type: string
+                                        faturaIslems:
+                                            type: array
+                                            items:
+                                                type: object
+                                                properties:
+                                                    ID:
+                                                        type: integer
+                                                    FAT_ID:
+                                                        type: integer
+                                                    URUN_KODU:
+                                                        type: string
+                                                    BARKOD:
+                                                        type: string
+                                                    AD:
+                                                        type: string
+                                                    MIKTAR:
+                                                        type: number
+                                                        format: decimal
+                                                    BRFIYAT:
+                                                        type: number
+                                                        format: decimal
+                                                    TOPFIYAT:
+                                                        type: number
+                                                        format: decimal
+                                                    gtopfiyat:
+                                                        type: number
+                                                        format: decimal
+                                                    kdv_tutar:
+                                                        type: number
+                                                        format: decimal
+                                                    kdv_oran:
+                                                        type: number
+                                                        format: decimal
+                                                    STOK_ID:
+                                                        type: integer
+                                                    maliyet:
+                                                        type: number
+                                                        format: decimal
+                                                    iskonto_oran:
+                                                        type: number
+                                                        format: decimal
+                                                    iskonto_tutar:
+                                                        type: number
+                                                        format: decimal
+                                                    iskonto_oran2:
+                                                        type: number
+                                                        format: decimal
+                                                    iskonto_tutar2:
+                                                        type: number
+                                                        format: decimal
+                                                    iskonto_oran3:
+                                                        type: number
+                                                        format: decimal
+                                                    iskonto_tutar3:
+                                                        type: number
+                                                        format: decimal
+                                                    birim:
+                                                        type: string
+                                                    kullaniciAdi:
+                                                        type: string
+                                                    subeAdi:
+                                                        type: string
+                                                    depo_id:
+                                                        type: integer
+                                                    otv_tutar:
+                                                        type: number
+                                                        format: decimal
+                                                    otv_oran:
+                                                        type: number
+                                                        format: decimal
+                                                    otv_kodu:
+                                                        type: string
+                                                    otv_adi:
+                                                        type: string
+                                                    oiv_tutar:
+                                                        type: number
+                                                        format: decimal
+                                                    oiv_oran:
+                                                        type: number
+                                                        format: decimal
+                                                    oiv_kodu:
+                                                        type: string
+                                                    oiv_adi:
+                                                        type: string
+                                                    tevkifat_oran:
+                                                        type: number
+                                                        format: decimal
+                                                    tevkifat_kodu:
+                                                        type: string
+                                                    tevkifat_adi:
+                                                        type: string
+                                                    tevkifat_tutar:
+                                                        type: number
+                                                        format: decimal
+                                                    kdv_muafiyet_adi:
+                                                        type: string
+                                                    kdv_muafiyet_kodu:
+                                                        type: string
+                                                    kdv_dahil:
+                                                        type: string
+                                                    otv_dahil:
+                                                        type: string
+                                                    oiv_dahil:
+                                                        type: string
+                                                    kdv_durum:
+                                                        type: string
+                                                    resimYolu:
+                                                        type: string
+                                                    stokRafi:
+                                                        type: string
+                                                    lot_id:
+                                                        type: integer
+                                                    LotNumarasi:
+                                                        type: string
+                                                    SonKullanmaTarihi:
+                                                        type: string
+                                                        format: date-time
+                                                    UretimTarihi:
+                                                        type: string
+                                                        format: date-time
+                                                    UretimZamani:
+                                                        type: string
+                                                        format: date-time
+                                                    IzNumarasi:
+                                                        type: string
+                                                    KayitNumarasi:
+                                                        type: string
+                                                    SeriNumarasi:
+                                                        type: string
+                                                    stokOzelKod1:
+                                                        type: string
+                                                    stokOzelKod2:
+                                                        type: string
+                                                    stokOzelKod3:
+                                                        type: string
+                                                    stokOzelKod4:
+                                                        type: string
+                                                    paraBirimiEfatura:
+                                                        type: string
+                                                    TeslimSartiKodu:
+                                                        type: string
+                                                    TeslimSartiAdi:
+                                                        type: string
+                                                    GonderilmeSekliKodu:
+                                                        type: string
+                                                    GonderilmeSekliAdi:
+                                                        type: string
+                                                    GtipNo:
+                                                        type: string
+                                                    KapCinsiKodu:
+                                                        type: string
+                                                    KapCinsiAdi:
+                                                        type: string
+                                                    KapNo:
+                                                        type: string
+                                                    KapAdet:
+                                                        type: number
+                                                        format: double
+                                                    GumrukTakipNo:
+                                                        type: string
+                                                    AliciUrunKodu:
+                                                        type: string
+                                                    SaticiUrunKodu:
+                                                        type: string
+                                                    SeriNo:
+                                                        type: string
+                                                    KunyeNo:
+                                                        type: string
+                                                    MalSahibi:
+                                                        type: string
+                                                    MalSahibiVknTckn:
+                                                        type: string
+                                                    digerVergi_oran:
+                                                        type: number
+                                                        format: decimal
+                                                    digerVergi_kodu:
+                                                        type: string
+                                                    digerVergi_adi:
+                                                        type: string
+                                                    digerVergi_tutar:
+                                                        type: number
+                                                        format: decimal
+                                                    digerVergi_muafiyet_adi:
+                                                        type: string
+                                                    digerVergi_muafiyet_kodu:
+                                                        type: string
+                                                    kdvDahilId:
+                                                        type: integer
+                                                    OtvDahilId:
+                                                        type: integer
+                                                    OivDahilId:
+                                                        type: integer
+                                                    alisDovizTurId:
+                                                        type: integer
+                                                    alisDovizKur:
+                                                        type: number
+                                                        format: decimal
+                                                    satisDovizTurId:
+                                                        type: integer
+                                                    satisDovizKur:
+                                                        type: number
+                                                        format: decimal
                 responses:
                     "200":
                         description: OK
-                        content:
-                            application/soap+xml:
-                                schema:
-                                    type: object
-                                    properties:
-                                        Envelope:
-                                            type: object
-                                            properties:
-                                                Body:
-                                                    type: object
-                                                    properties:
-                                                        gidenEfaturaYenidenGonderResponse:
-                                                            type: object
-                                                            properties:
-                                                                gidenEfaturaYenidenGonderResult:
-                                                                    type: object
-                                                                    properties:
-                                                                        basariliMi:
-                                                                            type: boolean
-                                                                        mesaj:
-                                                                            type: string
-                                                                        veri:
-                                                                            type: object
-                                                                        efaturaNo:
-                                                                            type: string
-                                                                        efaturaId:
-                                                                            type: string
-                                                                        efaturaSenaryo:
-                                                                            type: string
-                                                                        fisNo:
-                                                                            type: integer
-                                                                        evrakNo:
-                                                                            type: string
-                                                                        efaturaDurum:
-                                                                            type: string
-                    "400":
-                        description: Bad Request
-                        content:
-                            application/soap+xml:
-                                schema:
-                                    type: object
-                                    properties:
-                                        Envelope:
-                                            type: object
-                                            properties:
-                                                Body:
-                                                    type: object
-                                                    properties:
-                                                        Fault:
-                                                            type: object
-                                                            properties:
-                                                                faultcode:
-                                                                    type: string
-                                                                faultstring:
-                                                                    type: string
-                    "401":
-                        description: Unauthorized
-                        content:
-                            application/soap+xml:
-                                schema:
-                                    type: object
-                                    properties:
-                                        Envelope:
-                                            type: object
-                                            properties:
-                                                Body:
-                                                    type: object
-                                                    properties:
-                                                        Fault:
-                                                            type: object
-                                                            properties:
-                                                                faultcode:
-                                                                    type: string
-                                                                faultstring:
-                                                                    type: string
-                    "403":
-                        description: Forbidden
-                        content:
-                            application/soap+xml:
-                                schema:
-                                    type: object
-                                    properties:
-                                        Envelope:
-                                            type: object
-                                            properties:
-                                                Body:
-                                                    type: object
-                                                    properties:
-                                                        Fault:
-                                                            type: object
-                                                            properties:
-                                                                faultcode:
-                                                                    type: string
-                                                                faultstring:
-                                                                    type: string
-                    "404":
-                        description: Not Found
-                        content:
-                            application/soap+xml:
-                                schema:
-                                    type: object
-                                    properties:
-                                        Envelope:
-                                            type: object
-                                            properties:
-                                                Body:
-                                                    type: object
-                                                    properties:
-                                                        Fault:
-                                                            type: object
-                                                            properties:
-                                                                faultcode:
-                                                                    type: string
-                                                                faultstring:
-                                                                    type: string
             responses:
                 "200":
                     description: successful operation
