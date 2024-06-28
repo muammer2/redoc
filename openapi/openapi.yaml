@@ -3,6 +3,9 @@ info:
   title: Bilsoft E-Fatura API
   description: Bilsoft E-Fatura API dökümantasyonu
   version: v1.2
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
 servers:
   - url: https://virtserver.swaggerhub.com/Muammeryeni/swagtoredoc/v1.2
     description: SwaggerHub API Auto Mocking
@@ -10,6 +13,9 @@ paths:
   /AktivasyonEkle:
     post:
       summary: Aktivasyon ekle
+      operationId: aktivasyonEkle
+      security:
+        - ApiKeyAuth: []
       requestBody:
         content:
           application/json:
@@ -26,6 +32,11 @@ paths:
         "400":
           description: Hatalı istek
 components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
   schemas:
     Authentication_Spy:
       type: object
