@@ -1,798 +1,738 @@
 openapi: 3.0.0
 info:
-  title: Bilsoft E-Fatura API
-  description: Bilsoft E-Fatura API dökümantasyonu
-  version: v1.2
-  license:
-    name: Apache 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0.html
+    title: KontorHareket API
+    description: KontorHareket API documentation
+    version: v1.0
+    license:
+        name: Apache 2.0
+        url: https://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-  - url: https://virtserver.swaggerhub.com/Muammeryeni/swagtoredoc/v1.2
-    description: SwaggerHub API Auto Mocking
+    - url: https://virtserver.swaggerhub.com/Muammeryeni/swagtoredoc/v1.2
+      description: SwaggerHub API Auto Mocking
+    - url: https://api.bilsoft.com/v1_11/EFaturaApi
+      description: Bilsoft API Server
 paths:
-  /AktivasyonEkle:
-    post:
-      summary: Aktivasyon ekle
-      operationId: aktivasyonEkle
-      security:
-        - ApiKeyAuth: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AktivasyonEkleRequest'
-        required: true
-      responses:
-        "200":
-          description: Başarılı
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AktivasyonEkleResponse'
-        "400":
-          description: Hatalı istek
-  /FaturaIsaretleme:
-    post:
-      summary: Fatura işaretleme
-      operationId: faturaIsaretleme
-      security:
-        - ApiKeyAuth: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FaturaIsaretlemeRequest'
-        required: true
-      responses:
-        "200":
-          description: Başarılı
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FaturaIsaretlemeResponse'
-        "400":
-          description: Hatalı istek
-  /GetLogo2FACode:
-    post:
-      summary: Logo 2FA kodu al
-      operationId: getLogo2FACode
-      security:
-        - ApiKeyAuth: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GetLogo2FACodeRequest'
-        required: true
-      responses:
-        "200":
-          description: Başarılı
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetLogo2FACodeResponse'
-        "400":
-          description: Hatalı istek
-  /GibUblOnizleme:
-    post:
-      summary: GIB UBL Önizleme
-      operationId: gibUblOnizleme
-      security:
-        - ApiKeyAuth: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GibUblOnizlemeRequest'
-        required: true
-      responses:
-        "200":
-          description: Başarılı
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GibUblOnizlemeResponse'
-        "400":
-          description: Hatalı istek
-  /KalanKontorSorgula:
-    post:
-      summary: Kalan Kontör Sorgula
-      operationId: kalanKontorSorgula
-      security:
-        - ApiKeyAuth: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/KalanKontorSorgulaRequest'
-        required: true
-      responses:
-        "200":
-          description: Başarılı
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/KalanKontorSorgulaResponse'
-        "400":
-          description: Hatalı istek
-       /KontorHareket:
-    post:
-      summary: Kontor Hareket
-      operationId: kontorHareket
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/KontorHareketRequest'
-        required: true
-      responses:
-        "200":
-          description: Başarılı
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/KontorHareketResponse'
-        "400":
-          description: Hatalı istek
+    /AktivasyonEkle:
+        post:
+            summary: Aktivasyon ekle
+            operationId: aktivasyonEkle
+            security:
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/AktivasyonEkleRequest"
+                required: true
+            responses:
+                "200":
+                    description: Başarılı
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/AktivasyonEkleResponse"
+                "400":
+                    description: Hatalı istek
+    /FaturaIsaretleme:
+        post:
+            summary: Fatura işaretleme
+            operationId: faturaIsaretleme
+            security:
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/FaturaIsaretlemeRequest"
+                required: true
+            responses:
+                "200":
+                    description: Başarılı
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/FaturaIsaretlemeResponse"
+                "400":
+                    description: Hatalı istek
+    /GetLogo2FACode:
+        post:
+            summary: Logo 2FA kodu al
+            operationId: getLogo2FACode
+            security:
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/GetLogo2FACodeRequest"
+                required: true
+            responses:
+                "200":
+                    description: Başarılı
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/GetLogo2FACodeResponse"
+                "400":
+                    description: Hatalı istek
+    /GibUblOnizleme:
+        post:
+            summary: GIB UBL Önizleme
+            operationId: gibUblOnizleme
+            security:
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/GibUblOnizlemeRequest"
+                required: true
+            responses:
+                "200":
+                    description: Başarılı
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/GibUblOnizlemeResponse"
+                "400":
+                    description: Hatalı istek
+    /KalanKontorSorgula:
+        post:
+            summary: Kalan Kontör Sorgula
+            operationId: kalanKontorSorgula
+            security:
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/KalanKontorSorgulaRequest"
+                required: true
+            responses:
+                "200":
+                    description: Başarılı
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/KalanKontorSorgulaResponse"
+                "400":
+                    description: Hatalı istek
+    /KontorHareket:
+        post:
+            summary: Kontor Hareket
+            operationId: kontorHareket
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/KontorHareketRequest"
+                required: true
+            responses:
+                "200":
+                    description: Başarılı
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/KontorHareketResponse"
+                "400":
+                    description: Hatalı istek
 components:
-  securitySchemes:
-  KontorHareketRequest:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/KontorHareketRequest_Envelope'
-    KontorHareketRequest_Envelope:
-      type: object
-      properties:
-        Header:
-          $ref: '#/components/schemas/KontorHareketRequest_Envelope_Header'
-        Body:
-          $ref: '#/components/schemas/KontorHareketRequest_Envelope_Body'
-    KontorHareketRequest_Envelope_Header:
-      type: object
-      properties:
+    securitySchemes:
+        ApiKeyAuth:
+            type: apiKey
+            in: header
+            name: X-API-Key
+    schemas:
+        Authentication_Spy:
+            type: object
+            properties:
+                Spy1:
+                    type: string
+                Spy2:
+                    type: string
         Authentication:
-          $ref: '#/components/schemas/Authentication'
+            type: object
+            properties:
+                Kullanici:
+                    type: string
+                Sifre:
+                    type: string
+                ApiTur:
+                    type: string
+                Spy:
+                    $ref: "#/components/schemas/Authentication_Spy"
+        KullaniciBilgileri_vtBilgiler:
+            type: object
+            properties:
+                Server:
+                    type: string
+                Port:
+                    type: string
+                Database:
+                    type: string
+                VKullanici:
+                    type: string
+                VSifre:
+                    type: string
+                WebServisMesaj:
+                    type: string
+                WebServisCevap:
+                    type: string
         KullaniciBilgileri:
-          $ref: '#/components/schemas/KullaniciBilgileri'
+            type: object
+            properties:
+                xsltEfatura:
+                    type: string
+                xsltEarsiv:
+                    type: string
+                servisUrl:
+                    type: string
+                kullanici:
+                    type: string
+                sifre:
+                    type: string
+                GelenStokKaydet:
+                    type: boolean
+                vtBilgiler:
+                    $ref: "#/components/schemas/KullaniciBilgileri_vtBilgiler"
+                EFaturaSeriBaslik:
+                    type: string
+                EArsivSeriBaslik:
+                    type: string
+                SeciliGBEtiketi:
+                    type: string
+                entegrasyonTur:
+                    type: string
+                    enum:
+                        - EFatura
+                        - EIrsaliye
+                        - BilsoftMail
+                        - EMustahsil
+                logoSessionID:
+                    type: string
+                logo2FACode:
+                    type: string
+                gibMi:
+                    type: boolean
+                FirmaVergiNo:
+                    type: string
         AutHeader:
-          $ref: '#/components/schemas/AutHeader'
-    KontorHareketRequest_Envelope_Body:
-      type: object
-      properties:
-        KontorHareket:
-          $ref: '#/components/schemas/KontorHareketRequest_Envelope_Body_KontorHareket'
-    KontorHareketRequest_Envelope_Body_KontorHareket:
-      type: object
-      properties:
-        vkn:
-          type: string
-    KontorHareketResponse:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/KontorHareketResponse_Envelope'
-    KontorHareketResponse_Envelope:
-      type: object
-      properties:
-        Body:
-          $ref: '#/components/schemas/KontorHareketResponse_Envelope_Body'
-    KontorHareketResponse_Envelope_Body:
-      type: object
-      properties:
-        KontorHareketResponse:
-          $ref: '#/components/schemas/KontorHareketResponse_Envelope_Body_KontorHareketResponse'
-    KontorHareketResponse_Envelope_Body_KontorHareketResponse:
-      type: object
-      properties:
-        KontorHareketResult:
-          $ref: '#/components/schemas/KontorHareketResponse_Envelope_Body_KontorHareketResponse_KontorHareketResult'
-    KontorHareketResponse_Envelope_Body_KontorHareketResponse_KontorHareketResult:
-      type: object
-      properties:
-        Tveri:
-          $ref: '#/components/schemas/KontorHareketResponse_Envelope_Body_KontorHareketResponse_KontorHareketResult_Tveri'
-    KontorHareketResponse_Envelope_Body_KontorHareketResponse_KontorHareketResult_Tveri:
-      type: object
-      properties:
-        KontorHareket:
-          type: array
-          items:
-            $ref: '#/components/schemas/KontorHareketItem'
-    KontorHareketItem:
-      type: object
-      properties:
-        KullanimBaslangicTarih:
-          type: string
-          format: date-time
-        KullanimBitisTarih:
-          type: string
-          format: date-time
-        SureDolduMu:
-          type: boolean
-        Miktar:
-          type: integer
-        SonBakiye:
-          type: integer
-    Authentication_Spy:
-      type: object
-      properties:
-        Spy1:
-          type: string
-        Spy2:
-          type: string
-    Authentication:
-      type: object
-      properties:
-        Kullanici:
-          type: string
-        Sifre:
-          type: string
-        ApiTur:
-          type: string
-        Spy:
-          $ref: '#/components/schemas/Authentication_Spy'
-    KullaniciBilgileri_vtBilgiler:
-      type: object
-      properties:
-        Server:
-          type: string
-        Port:
-          type: string
-        Database:
-          type: string
-        VKullanici:
-          type: string
-        VSifre:
-          type: string
-        WebServisMesaj:
-          type: string
-        WebServisCevap:
-          type: string
-    KullaniciBilgileri:
-      type: object
-      properties:
-        xsltEfatura:
-          type: string
-        xsltEarsiv:
-          type: string
-        servisUrl:
-          type: string
-        kullanici:
-          type: string
-        sifre:
-          type: string
-        GelenStokKaydet:
-          type: boolean
-        vtBilgiler:
-          $ref: '#/components/schemas/KullaniciBilgileri_vtBilgiler'
-        EFaturaSeriBaslik:
-          type: string
-        EArsivSeriBaslik:
-          type: string
-        SeciliGBEtiketi:
-          type: string
-        entegrasyonTur:
-          type: string
-          enum:
-            - EFatura
-            - EIrsaliye
-            - BilsoftMail
-            - EMustahsil
-        logoSessionID:
-          type: string
-        logo2FACode:
-          type: string
-        gibMi:
-          type: boolean
-        FirmaVergiNo:
-          type: string
-    AutHeader:
-      type: object
-      properties:
-        Donem:
-          type: string
-        VergiNo:
-          type: string
-        VeritabaniAd:
-          type: string
-        KullaniciAdi:
-          type: string
-        Sifre:
-          type: string
-        Sube:
-          type: string
-        IpAdresi:
-          type: string
-        MacAdresi:
-          type: string
-        DovizAktifMi:
-          type: string
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: X-API-Key
-  schemas:
-    Authentication_Spy:
-      type: object
-      properties:
-        Spy1:
-          type: string
-        Spy2:
-          type: string
-    Authentication:
-      type: object
-      properties:
-        Kullanici:
-          type: string
-        Sifre:
-          type: string
-        ApiTur:
-          type: string
-        Spy:
-          $ref: '#/components/schemas/Authentication_Spy'
-    KullaniciBilgileri_vtBilgiler:
-      type: object
-      properties:
-        Server:
-          type: string
-        Port:
-          type: string
-        Database:
-          type: string
-        VKullanici:
-          type: string
-        VSifre:
-          type: string
-        WebServisMesaj:
-          type: string
-        WebServisCevap:
-          type: string
-    KullaniciBilgileri:
-      type: object
-      properties:
-        xsltEfatura:
-          type: string
-        xsltEarsiv:
-          type: string
-        servisUrl:
-          type: string
-        kullanici:
-          type: string
-        sifre:
-          type: string
-        GelenStokKaydet:
-          type: boolean
-        vtBilgiler:
-          $ref: '#/components/schemas/KullaniciBilgileri_vtBilgiler'
-        EFaturaSeriBaslik:
-          type: string
-        EArsivSeriBaslik:
-          type: string
-        SeciliGBEtiketi:
-          type: string
-        entegrasyonTur:
-          type: string
-          enum:
-            - EFatura
-            - EIrsaliye
-            - BilsoftMail
-            - EMustahsil
-        logoSessionID:
-          type: string
-        logo2FACode:
-          type: string
-        gibMi:
-          type: boolean
-        FirmaVergiNo:
-          type: string
-    AutHeader:
-      type: object
-      properties:
-        Donem:
-          type: string
-        VergiNo:
-          type: string
-        VeritabaniAd:
-          type: string
-        KullaniciAdi:
-          type: string
-        Sifre:
-          type: string
-        Sube:
-          type: string
-        IpAdresi:
-          type: string
-        MacAdresi:
-          type: string
-        DovizAktifMi:
-          type: string
-    Aktivasyon:
-      type: object
-      properties:
-        AktivasyonTip:
-          type: string
-        AktivasyonTarih:
-          type: string
-          format: date-time
-        Pk:
-          type: string
-        Gb:
-          type: string
-        SeriBaslik:
-          type: string
-    MusteriEkle:
-      type: object
-      properties:
-        Unvan:
-          type: string
-        Yetkili:
-          type: string
-        YetkiliTckn:
-          type: string
-        VknTckn:
-          type: string
-        VergiDairesi:
-          type: string
-        TicaretSicilNo:
-          type: string
-        Tel:
-          type: string
-        Email:
-          type: string
-        Fax:
-          type: string
-        Website:
-          type: string
-        Ulke:
-          type: string
-        Il:
-          type: string
-        Ilce:
-          type: string
-        Adres:
-          type: string
-        Aktivasyonlar:
-          type: array
-          items:
-            $ref: '#/components/schemas/Aktivasyon'
-    AktivasyonEkleRequest_Envelope_Header:
-      type: object
-      properties:
-        Authentication:
-          $ref: '#/components/schemas/Authentication'
-        KullaniciBilgileri:
-          $ref: '#/components/schemas/KullaniciBilgileri'
-        AutHeader:
-          $ref: '#/components/schemas/AutHeader'
-    AktivasyonEkleRequest_Envelope_Body_AktivasyonEkle:
-      type: object
-      properties:
-        musteriEkle:
-          $ref: '#/components/schemas/MusteriEkle'
-    AktivasyonEkleRequest_Envelope_Body:
-      type: object
-      properties:
-        AktivasyonEkle:
-          $ref: '#/components/schemas/AktivasyonEkleRequest_Envelope_Body_AktivasyonEkle'
-    AktivasyonEkleRequest_Envelope:
-      type: object
-      properties:
-        Header:
-          $ref: '#/components/schemas/AktivasyonEkleRequest_Envelope_Header'
-        Body:
-          $ref: '#/components/schemas/AktivasyonEkleRequest_Envelope_Body'
-    AktivasyonEkleRequest:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/AktivasyonEkleRequest_Envelope'
-    AktivasyonEkleResponse_Envelope_Body_AktivasyonEkleResponse_AktivasyonEkleResult:
-      type: object
-      properties:
-        basariliMi:
-          type: boolean
-        mesaj:
-          type: string
-        veri:
-          type: string
-        efaturaNo:
-          type: string
-        efaturaId:
-          type: string
-        efaturaSenaryo:
-          type: string
-        fisNo:
-          type: integer
-        evrakNo:
-          type: string
-        efaturaDurum:
-          type: string
-    AktivasyonEkleResponse_Envelope_Body_AktivasyonEkleResponse:
-      type: object
-      properties:
-        AktivasyonEkleResult:
-          $ref: '#/components/schemas/AktivasyonEkleResponse_Envelope_Body_AktivasyonEkleResponse_AktivasyonEkleResult'
-    AktivasyonEkleResponse_Envelope_Body:
-      type: object
-      properties:
+            type: object
+            properties:
+                Donem:
+                    type: string
+                VergiNo:
+                    type: string
+                VeritabaniAd:
+                    type: string
+                KullaniciAdi:
+                    type: string
+                Sifre:
+                    type: string
+                Sube:
+                    type: string
+                IpAdresi:
+                    type: string
+                MacAdresi:
+                    type: string
+                DovizAktifMi:
+                    type: string
+        Aktivasyon:
+            type: object
+            properties:
+                AktivasyonTip:
+                    type: string
+                AktivasyonTarih:
+                    type: string
+                    format: date-time
+                Pk:
+                    type: string
+                Gb:
+                    type: string
+                SeriBaslik:
+                    type: string
+        MusteriEkle:
+            type: object
+            properties:
+                Unvan:
+                    type: string
+                Yetkili:
+                    type: string
+                YetkiliTckn:
+                    type: string
+                VknTckn:
+                    type: string
+                VergiDairesi:
+                    type: string
+                TicaretSicilNo:
+                    type: string
+                Tel:
+                    type: string
+                Email:
+                    type: string
+                Fax:
+                    type: string
+                Website:
+                    type: string
+                Ulke:
+                    type: string
+                Il:
+                    type: string
+                Ilce:
+                    type: string
+                Adres:
+                    type: string
+                Aktivasyonlar:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/Aktivasyon"
+        AktivasyonEkleRequest_Envelope_Header:
+            type: object
+            properties:
+                Authentication:
+                    $ref: "#/components/schemas/Authentication"
+                KullaniciBilgileri:
+                    $ref: "#/components/schemas/KullaniciBilgileri"
+                AutHeader:
+                    $ref: "#/components/schemas/AutHeader"
+        AktivasyonEkleRequest_Envelope_Body_AktivasyonEkle:
+            type: object
+            properties:
+                musteriEkle:
+                    $ref: "#/components/schemas/MusteriEkle"
+        AktivasyonEkleRequest_Envelope_Body:
+            type: object
+            properties:
+                AktivasyonEkle:
+                    $ref: "#/components/schemas/AktivasyonEkleRequest_Envelope_Body_AktivasyonEkle"
+        AktivasyonEkleRequest_Envelope:
+            type: object
+            properties:
+                Header:
+                    $ref: "#/components/schemas/AktivasyonEkleRequest_Envelope_Header"
+                Body:
+                    $ref: "#/components/schemas/AktivasyonEkleRequest_Envelope_Body"
+        AktivasyonEkleRequest:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/AktivasyonEkleRequest_Envelope"
+        AktivasyonEkleResponse_Envelope_Body_AktivasyonEkleResponse_AktivasyonEkleResult:
+            type: object
+            properties:
+                basariliMi:
+                    type: boolean
+                mesaj:
+                    type: string
+                veri:
+                    type: string
+                efaturaNo:
+                    type: string
+                efaturaId:
+                    type: string
+                efaturaSenaryo:
+                    type: string
+                fisNo:
+                    type: integer
+                evrakNo:
+                    type: string
+                efaturaDurum:
+                    type: string
+        AktivasyonEkleResponse_Envelope_Body_AktivasyonEkleResponse:
+            type: object
+            properties:
+                AktivasyonEkleResult:
+                    $ref:
+                        "#/components/schemas/AktivasyonEkleResponse_Envelope_Body_AktivasyonEkle\
+                        Response_AktivasyonEkleResult"
+        AktivasyonEkleResponse_Envelope_Body:
+            type: object
+            properties:
+                AktivasyonEkleResponse:
+                    $ref:
+                        "#/components/schemas/AktivasyonEkleResponse_Envelope_Body_AktivasyonEkle\
+                        Response"
+        AktivasyonEkleResponse_Envelope:
+            type: object
+            properties:
+                Body:
+                    $ref: "#/components/schemas/AktivasyonEkleResponse_Envelope_Body"
         AktivasyonEkleResponse:
-          $ref: '#/components/schemas/AktivasyonEkleResponse_Envelope_Body_AktivasyonEkleResponse'
-    AktivasyonEkleResponse_Envelope:
-      type: object
-      properties:
-        Body:
-          $ref: '#/components/schemas/AktivasyonEkleResponse_Envelope_Body'
-    AktivasyonEkleResponse:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/AktivasyonEkleResponse_Envelope'
-    FaturaIsaretlemeRequest:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/FaturaIsaretlemeRequest_Envelope'
-    FaturaIsaretlemeRequest_Envelope:
-      type: object
-      properties:
-        Header:
-          $ref: '#/components/schemas/AktivasyonEkleRequest_Envelope_Header'
-        Body:
-          $ref: '#/components/schemas/FaturaIsaretlemeRequest_Envelope_Body'
-    FaturaIsaretlemeRequest_Envelope_Body:
-      type: object
-      properties:
-        FaturaIsaretleme:
-          $ref: '#/components/schemas/FaturaIsaretlemeRequest_Envelope_Body_FaturaIsaretleme'
-    FaturaIsaretlemeRequest_Envelope_Body_FaturaIsaretleme:
-      type: object
-      properties:
-        ettn:
-          type: string
-        isaretlemeEnum:
-          type: string
-          enum:
-            - ARSIVLENDI
-            - OKUNDU
-            - MUHASEBELESTIRILDI
-            - AKTARILDI
-            - YAZDIRILDI
-            - TASLAKIPTAL
-            - GIB_IPTAL
-        isaretlemeValueInt:
-          type: integer
-        uygulamaTuru:
-          type: integer
-    FaturaIsaretlemeResponse:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/FaturaIsaretlemeResponse_Envelope'
-    FaturaIsaretlemeResponse_Envelope:
-      type: object
-      properties:
-        Body:
-          $ref: '#/components/schemas/FaturaIsaretlemeResponse_Envelope_Body'
-    FaturaIsaretlemeResponse_Envelope_Body:
-      type: object
-      properties:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/AktivasyonEkleResponse_Envelope"
+        FaturaIsaretlemeRequest:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/FaturaIsaretlemeRequest_Envelope"
+        FaturaIsaretlemeRequest_Envelope:
+            type: object
+            properties:
+                Header:
+                    $ref: "#/components/schemas/AktivasyonEkleRequest_Envelope_Header"
+                Body:
+                    $ref: "#/components/schemas/FaturaIsaretlemeRequest_Envelope_Body"
+        FaturaIsaretlemeRequest_Envelope_Body:
+            type: object
+            properties:
+                FaturaIsaretleme:
+                    $ref:
+                        "#/components/schemas/FaturaIsaretlemeRequest_Envelope_Body_FaturaIsaretl\
+                        eme"
+        FaturaIsaretlemeRequest_Envelope_Body_FaturaIsaretleme:
+            type: object
+            properties:
+                ettn:
+                    type: string
+                isaretlemeEnum:
+                    type: string
+                    enum:
+                        - ARSIVLENDI
+                        - OKUNDU
+                        - MUHASEBELESTIRILDI
+                        - AKTARILDI
+                        - YAZDIRILDI
+                        - TASLAKIPTAL
+                        - GIB_IPTAL
+                isaretlemeValueInt:
+                    type: integer
+                uygulamaTuru:
+                    type: integer
         FaturaIsaretlemeResponse:
-          $ref: '#/components/schemas/FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaretlemeResponse'
-    FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaretlemeResponse:
-      type: object
-      properties:
-        FaturaIsaretlemeResult:
-          $ref: '#/components/schemas/FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaretlemeResponse_FaturaIsaretlemeResult'
-    FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaretlemeResponse_FaturaIsaretlemeResult:
-      type: object
-      properties:
-        basariliMi:
-          type: boolean
-        mesaj:
-          type: string
-        veri:
-          type: string
-        efaturaNo:
-          type: string
-        efaturaId:
-          type: string
-        efaturaSenaryo:
-          type: string
-        fisNo:
-          type: integer
-        evrakNo:
-          type: string
-        efaturaDurum:
-          type: string
-    GetLogo2FACodeRequest:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/GetLogo2FACodeRequest_Envelope'
-    GetLogo2FACodeRequest_Envelope:
-      type: object
-      properties:
-        Header:
-          $ref: '#/components/schemas/AktivasyonEkleRequest_Envelope_Header'
-        Body:
-          $ref: '#/components/schemas/GetLogo2FACodeRequest_Envelope_Body'
-    GetLogo2FACodeRequest_Envelope_Body:
-      type: object
-      properties:
-        GetLogo2FACode:
-          $ref: '#/components/schemas/GetLogo2FACodeRequest_Envelope_Body_GetLogo2FACode'
-    GetLogo2FACodeRequest_Envelope_Body_GetLogo2FACode:
-      type: object
-      properties:
-        cepno:
-          type: string
-    GetLogo2FACodeResponse:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/GetLogo2FACodeResponse_Envelope'
-    GetLogo2FACodeResponse_Envelope:
-      type: object
-      properties:
-        Body:
-          $ref: '#/components/schemas/GetLogo2FACodeResponse_Envelope_Body'
-    GetLogo2FACodeResponse_Envelope_Body:
-      type: object
-      properties:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/FaturaIsaretlemeResponse_Envelope"
+        FaturaIsaretlemeResponse_Envelope:
+            type: object
+            properties:
+                Body:
+                    $ref: "#/components/schemas/FaturaIsaretlemeResponse_Envelope_Body"
+        FaturaIsaretlemeResponse_Envelope_Body:
+            type: object
+            properties:
+                FaturaIsaretlemeResponse:
+                    $ref:
+                        "#/components/schemas/FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaret\
+                        lemeResponse"
+        FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaretlemeResponse:
+            type: object
+            properties:
+                FaturaIsaretlemeResult:
+                    $ref:
+                        "#/components/schemas/FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaret\
+                        lemeResponse_FaturaIsaretlemeResult"
+        FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaretlemeResponse_FaturaIsaretlemeResult:
+            type: object
+            properties:
+                basariliMi:
+                    type: boolean
+                mesaj:
+                    type: string
+                veri:
+                    type: string
+                efaturaNo:
+                    type: string
+                efaturaId:
+                    type: string
+                efaturaSenaryo:
+                    type: string
+                fisNo:
+                    type: integer
+                evrakNo:
+                    type: string
+                efaturaDurum:
+                    type: string
+        GetLogo2FACodeRequest:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/GetLogo2FACodeRequest_Envelope"
+        GetLogo2FACodeRequest_Envelope:
+            type: object
+            properties:
+                Header:
+                    $ref: "#/components/schemas/AktivasyonEkleRequest_Envelope_Header"
+                Body:
+                    $ref: "#/components/schemas/GetLogo2FACodeRequest_Envelope_Body"
+        GetLogo2FACodeRequest_Envelope_Body:
+            type: object
+            properties:
+                GetLogo2FACode:
+                    $ref: "#/components/schemas/GetLogo2FACodeRequest_Envelope_Body_GetLogo2FACode"
+        GetLogo2FACodeRequest_Envelope_Body_GetLogo2FACode:
+            type: object
+            properties:
+                cepno:
+                    type: string
         GetLogo2FACodeResponse:
-          $ref: '#/components/schemas/GetLogo2FACodeResponse_Envelope_Body_GetLogo2FACodeResponse'
-    GetLogo2FACodeResponse_Envelope_Body_GetLogo2FACodeResponse:
-      type: object
-      properties:
-        GetLogo2FACodeResult:
-          $ref: '#/components/schemas/GetLogo2FACodeResponse_Envelope_Body_GetLogo2FACodeResponse_GetLogo2FACodeResult'
-    GetLogo2FACodeResponse_Envelope_Body_GetLogo2FACodeResponse_GetLogo2FACodeResult:
-      type: object
-      properties:
-        basariliMi:
-          type: boolean
-        mesaj:
-          type: string
-        veri:
-          type: string
-        efaturaNo:
-          type: string
-        efaturaId:
-          type: string
-        efaturaSenaryo:
-          type: string
-        fisNo:
-          type: integer
-        evrakNo:
-          type: string
-        efaturaDurum:
-          type: string
-    GibUblOnizlemeRequest:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/GibUblOnizlemeRequest_Envelope'
-    GibUblOnizlemeRequest_Envelope:
-      type: object
-      properties:
-        Body:
-          $ref: '#/components/schemas/GibUblOnizlemeRequest_Envelope_Body'
-    GibUblOnizlemeRequest_Envelope_Body:
-      type: object
-      properties:
-        GibUblOnizleme:
-          $ref: '#/components/schemas/GibUblOnizlemeRequest_Envelope_Body_GibUblOnizleme'
-    GibUblOnizlemeRequest_Envelope_Body_GibUblOnizleme:
-      type: object
-      properties:
-        xmlData:
-          type: string
-        xsltTasarim:
-          type: string
-    GibUblOnizlemeResponse:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/GibUblOnizlemeResponse_Envelope'
-    GibUblOnizlemeResponse_Envelope:
-      type: object
-      properties:
-        Body:
-          $ref: '#/components/schemas/GibUblOnizlemeResponse_Envelope_Body'
-    GibUblOnizlemeResponse_Envelope_Body:
-      type: object
-      properties:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/GetLogo2FACodeResponse_Envelope"
+        GetLogo2FACodeResponse_Envelope:
+            type: object
+            properties:
+                Body:
+                    $ref: "#/components/schemas/GetLogo2FACodeResponse_Envelope_Body"
+        GetLogo2FACodeResponse_Envelope_Body:
+            type: object
+            properties:
+                GetLogo2FACodeResponse:
+                    $ref:
+                        "#/components/schemas/GetLogo2FACodeResponse_Envelope_Body_GetLogo2FACode\
+                        Response"
+        GetLogo2FACodeResponse_Envelope_Body_GetLogo2FACodeResponse:
+            type: object
+            properties:
+                GetLogo2FACodeResult:
+                    $ref:
+                        "#/components/schemas/GetLogo2FACodeResponse_Envelope_Body_GetLogo2FACode\
+                        Response_GetLogo2FACodeResult"
+        GetLogo2FACodeResponse_Envelope_Body_GetLogo2FACodeResponse_GetLogo2FACodeResult:
+            type: object
+            properties:
+                basariliMi:
+                    type: boolean
+                mesaj:
+                    type: string
+                veri:
+                    type: string
+                efaturaNo:
+                    type: string
+                efaturaId:
+                    type: string
+                efaturaSenaryo:
+                    type: string
+                fisNo:
+                    type: integer
+                evrakNo:
+                    type: string
+                efaturaDurum:
+                    type: string
+        GibUblOnizlemeRequest:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/GibUblOnizlemeRequest_Envelope"
+        GibUblOnizlemeRequest_Envelope:
+            type: object
+            properties:
+                Body:
+                    $ref: "#/components/schemas/GibUblOnizlemeRequest_Envelope_Body"
+        GibUblOnizlemeRequest_Envelope_Body:
+            type: object
+            properties:
+                GibUblOnizleme:
+                    $ref: "#/components/schemas/GibUblOnizlemeRequest_Envelope_Body_GibUblOnizleme"
+        GibUblOnizlemeRequest_Envelope_Body_GibUblOnizleme:
+            type: object
+            properties:
+                xmlData:
+                    type: string
+                xsltTasarim:
+                    type: string
         GibUblOnizlemeResponse:
-          $ref: '#/components/schemas/GibUblOnizlemeResponse_Envelope_Body_GibUblOnizlemeResponse'
-    GibUblOnizlemeResponse_Envelope_Body_GibUblOnizlemeResponse:
-      type: object
-      properties:
-        GibUblOnizlemeResult:
-          $ref: '#/components/schemas/GibUblOnizlemeResponse_Envelope_Body_GibUblOnizlemeResponse_GibUblOnizlemeResult'
-    GibUblOnizlemeResponse_Envelope_Body_GibUblOnizlemeResponse_GibUblOnizlemeResult:
-      type: object
-      properties:
-        basariliMi:
-          type: boolean
-        mesaj:
-          type: string
-        veri:
-          type: string
-        efaturaNo:
-          type: string
-        efaturaId:
-          type: string
-        efaturaSenaryo:
-          type: string
-        fisNo:
-          type: integer
-        evrakNo:
-          type: string
-        efaturaDurum:
-          type: string
-    KalanKontorSorgulaRequest:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/KalanKontorSorgulaRequest_Envelope'
-    KalanKontorSorgulaRequest_Envelope:
-      type: object
-      properties:
-        Header:
-          $ref: '#/components/schemas/KalanKontorSorgulaRequest_Envelope_Header'
-        Body:
-          $ref: '#/components/schemas/KalanKontorSorgulaRequest_Envelope_Body'
-    KalanKontorSorgulaRequest_Envelope_Header:
-      type: object
-      properties:
-        Authentication:
-          $ref: '#/components/schemas/Authentication'
-        KullaniciBilgileri:
-          $ref: '#/components/schemas/KullaniciBilgileri'
-        AutHeader:
-          $ref: '#/components/schemas/AutHeader'
-    KalanKontorSorgulaRequest_Envelope_Body:
-      type: object
-      properties:
-        KalanKontorSorgula:
-          $ref: '#/components/schemas/KalanKontorSorgulaRequest_Envelope_Body_KalanKontorSorgula'
-    KalanKontorSorgulaRequest_Envelope_Body_KalanKontorSorgula:
-      type: object
-      properties:
-        vergino:
-          type: string
-    KalanKontorSorgulaResponse:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/KalanKontorSorgulaResponse_Envelope'
-    KalanKontorSorgulaResponse_Envelope:
-      type: object
-      properties:
-        Body:
-          $ref: '#/components/schemas/KalanKontorSorgulaResponse_Envelope_Body'
-    KalanKontorSorgulaResponse_Envelope_Body:
-      type: object
-      properties:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/GibUblOnizlemeResponse_Envelope"
+        GibUblOnizlemeResponse_Envelope:
+            type: object
+            properties:
+                Body:
+                    $ref: "#/components/schemas/GibUblOnizlemeResponse_Envelope_Body"
+        GibUblOnizlemeResponse_Envelope_Body:
+            type: object
+            properties:
+                GibUblOnizlemeResponse:
+                    $ref:
+                        "#/components/schemas/GibUblOnizlemeResponse_Envelope_Body_GibUblOnizleme\
+                        Response"
+        GibUblOnizlemeResponse_Envelope_Body_GibUblOnizlemeResponse:
+            type: object
+            properties:
+                GibUblOnizlemeResult:
+                    $ref:
+                        "#/components/schemas/GibUblOnizlemeResponse_Envelope_Body_GibUblOnizleme\
+                        Response_GibUblOnizlemeResult"
+        GibUblOnizlemeResponse_Envelope_Body_GibUblOnizlemeResponse_GibUblOnizlemeResult:
+            type: object
+            properties:
+                basariliMi:
+                    type: boolean
+                mesaj:
+                    type: string
+                veri:
+                    type: string
+                efaturaNo:
+                    type: string
+                efaturaId:
+                    type: string
+                efaturaSenaryo:
+                    type: string
+                fisNo:
+                    type: integer
+                evrakNo:
+                    type: string
+                efaturaDurum:
+                    type: string
+        KalanKontorSorgulaRequest:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/KalanKontorSorgulaRequest_Envelope"
+        KalanKontorSorgulaRequest_Envelope:
+            type: object
+            properties:
+                Header:
+                    $ref: "#/components/schemas/KalanKontorSorgulaRequest_Envelope_Header"
+                Body:
+                    $ref: "#/components/schemas/KalanKontorSorgulaRequest_Envelope_Body"
+        KalanKontorSorgulaRequest_Envelope_Header:
+            type: object
+            properties:
+                Authentication:
+                    $ref: "#/components/schemas/Authentication"
+                KullaniciBilgileri:
+                    $ref: "#/components/schemas/KullaniciBilgileri"
+                AutHeader:
+                    $ref: "#/components/schemas/AutHeader"
+        KalanKontorSorgulaRequest_Envelope_Body:
+            type: object
+            properties:
+                KalanKontorSorgula:
+                    $ref:
+                        "#/components/schemas/KalanKontorSorgulaRequest_Envelope_Body_KalanKontor\
+                        Sorgula"
+        KalanKontorSorgulaRequest_Envelope_Body_KalanKontorSorgula:
+            type: object
+            properties:
+                vergino:
+                    type: string
         KalanKontorSorgulaResponse:
-          $ref: '#/components/schemas/KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse'
-    KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse:
-      type: object
-      properties:
-        KalanKontorSorgulaResult:
-          $ref: '#/components/schemas/KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse_KalanKontorSorgulaResult'
-    KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse_KalanKontorSorgulaResult:
-      type: object
-      properties:
-        Tveri:
-          $ref: '#/components/schemas/KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse_KalanKontorSorgulaResult_Tveri'
-    KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse_KalanKontorSorgulaResult_Tveri:
-      type: object
-      properties:
-        ToplamKontorAdet:
-          type: number
-          format: decimal
-        KalanKontorAdet:
-          type: number
-          format: decimal
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/KalanKontorSorgulaResponse_Envelope"
+        KalanKontorSorgulaResponse_Envelope:
+            type: object
+            properties:
+                Body:
+                    $ref: "#/components/schemas/KalanKontorSorgulaResponse_Envelope_Body"
+        KalanKontorSorgulaResponse_Envelope_Body:
+            type: object
+            properties:
+                KalanKontorSorgulaResponse:
+                    $ref:
+                        "#/components/schemas/KalanKontorSorgulaResponse_Envelope_Body_KalanKonto\
+                        rSorgulaResponse"
+        KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse:
+            type: object
+            properties:
+                KalanKontorSorgulaResult:
+                    $ref:
+                        "#/components/schemas/KalanKontorSorgulaResponse_Envelope_Body_KalanKonto\
+                        rSorgulaResponse_KalanKontorSorgulaResult"
+        KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse_KalanKontorSorgulaResult:
+            type: object
+            properties:
+                Tveri:
+                    $ref:
+                        "#/components/schemas/KalanKontorSorgulaResponse_Envelope_Body_KalanKonto\
+                        rSorgulaResponse_KalanKontorSorgulaResult_Tveri"
+        KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse_KalanKontorSorgulaResult_Tveri:
+            type: object
+            properties:
+                ToplamKontorAdet:
+                    type: number
+                    format: decimal
+                KalanKontorAdet:
+                    type: number
+                    format: decimal
+        KontorHareketRequest:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/KontorHareketRequest_Envelope"
+        KontorHareketRequest_Envelope:
+            type: object
+            properties:
+                Header:
+                    $ref: "#/components/schemas/KontorHareketRequest_Envelope_Header"
+                Body:
+                    $ref: "#/components/schemas/KontorHareketRequest_Envelope_Body"
+        KontorHareketRequest_Envelope_Header:
+            type: object
+            properties:
+                Authentication:
+                    $ref: "#/components/schemas/Authentication"
+                KullaniciBilgileri:
+                    $ref: "#/components/schemas/KullaniciBilgileri"
+                AutHeader:
+                    $ref: "#/components/schemas/AutHeader"
+        KontorHareketRequest_Envelope_Body:
+            type: object
+            properties:
+                KontorHareket:
+                    $ref: "#/components/schemas/KontorHareketRequest_Envelope_Body_KontorHareket"
+        KontorHareketRequest_Envelope_Body_KontorHareket:
+            type: object
+            properties:
+                vkn:
+                    type: string
+        KontorHareketResponse:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/KontorHareketResponse_Envelope"
+        KontorHareketResponse_Envelope:
+            type: object
+            properties:
+                Body:
+                    $ref: "#/components/schemas/KontorHareketResponse_Envelope_Body"
+        KontorHareketResponse_Envelope_Body:
+            type: object
+            properties:
+                KontorHareketResponse:
+                    $ref:
+                        "#/components/schemas/KontorHareketResponse_Envelope_Body_KontorHareketRe\
+                        sponse"
+        KontorHareketResponse_Envelope_Body_KontorHareketResponse:
+            type: object
+            properties:
+                KontorHareketResult:
+                    $ref:
+                        "#/components/schemas/KontorHareketResponse_Envelope_Body_KontorHareketRe\
+                        sponse_KontorHareketResult"
+        KontorHareketResponse_Envelope_Body_KontorHareketResponse_KontorHareketResult:
+            type: object
+            properties:
+                Tveri:
+                    $ref:
+                        "#/components/schemas/KontorHareketResponse_Envelope_Body_KontorHareketRe\
+                        sponse_KontorHareketResult_Tveri"
+        KontorHareketResponse_Envelope_Body_KontorHareketResponse_KontorHareketResult_Tveri:
+            type: object
+            properties:
+                KontorHareket:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/KontorHareketItem"
+        KontorHareketItem:
+            type: object
+            properties:
+                KullanimBaslangicTarih:
+                    type: string
+                    format: date-time
+                KullanimBitisTarih:
+                    type: string
+                    format: date-time
+                SureDolduMu:
+                    type: boolean
+                Miktar:
+                    type: integer
+                SonBakiye:
+                    type: integer
