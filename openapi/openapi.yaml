@@ -121,6 +121,8 @@ paths:
         post:
             summary: Kontor Hareket
             operationId: kontorHareket
+            security:
+                - ApiKeyAuth: []
             requestBody:
                 content:
                     application/json:
