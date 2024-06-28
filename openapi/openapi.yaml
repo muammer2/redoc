@@ -1768,6 +1768,814 @@ paths:
                                 properties:
                                     faultstring:
                                         type: string
+    /gelenEfaturaOnayla:
+        post:
+            summary: Gelen Efatura Onayla
+            operationId: gelenEfaturaOnayla
+            security:
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/soap+xml:
+                        schema:
+                            type: object
+                            properties:
+                                Envelope:
+                                    type: object
+                                    properties:
+                                        Header:
+                                            type: object
+                                            properties:
+                                                Authentication:
+                                                    type: object
+                                                    properties:
+                                                        Kullanici:
+                                                            type: string
+                                                        Sifre:
+                                                            type: string
+                                                        ApiTur:
+                                                            type: string
+                                                        Spy:
+                                                            type: object
+                                                            properties:
+                                                                Spy1:
+                                                                    type: string
+                                                                Spy2:
+                                                                    type: string
+                                                KullaniciBilgileri:
+                                                    type: object
+                                                    properties:
+                                                        xsltEfatura:
+                                                            type: string
+                                                        xsltEarsiv:
+                                                            type: string
+                                                        servisUrl:
+                                                            type: string
+                                                        kullanici:
+                                                            type: string
+                                                        sifre:
+                                                            type: string
+                                                        GelenStokKaydet:
+                                                            type: boolean
+                                                        vtBilgiler:
+                                                            type: object
+                                                            properties:
+                                                                Server:
+                                                                    type: string
+                                                                Port:
+                                                                    type: string
+                                                                Database:
+                                                                    type: string
+                                                                VKullanici:
+                                                                    type: string
+                                                                VSifre:
+                                                                    type: string
+                                                                WebServisMesaj:
+                                                                    type: string
+                                                                WebServisCevap:
+                                                                    type: string
+                                                        EFaturaSeriBaslik:
+                                                            type: string
+                                                        EArsivSeriBaslik:
+                                                            type: string
+                                                        SeciliGBEtiketi:
+                                                            type: string
+                                                        entegrasyonTur:
+                                                            type: string
+                                                            enum:
+                                                                - EFatura
+                                                                - EIrsaliye
+                                                                - BilsoftMail
+                                                                - EMustahsil
+                                                        logoSessionID:
+                                                            type: string
+                                                        logo2FACode:
+                                                            type: string
+                                                        gibMi:
+                                                            type: boolean
+                                                        FirmaVergiNo:
+                                                            type: string
+                                                AutHeader:
+                                                    type: object
+                                                    properties:
+                                                        Donem:
+                                                            type: string
+                                                        VergiNo:
+                                                            type: string
+                                                        VeritabaniAd:
+                                                            type: string
+                                                        KullaniciAdi:
+                                                            type: string
+                                                        Sifre:
+                                                            type: string
+                                                        Sube:
+                                                            type: string
+                                                        IpAdresi:
+                                                            type: string
+                                                        MacAdresi:
+                                                            type: string
+                                                        DovizAktifMi:
+                                                            type: string
+                                        Body:
+                                            type: object
+                                            properties:
+                                                gelenEfaturaOnayla:
+                                                    type: object
+                                                    properties:
+                                                        efaturaNo:
+                                                            type: string
+                                                        vtKaydet:
+                                                            type: boolean
+            responses:
+                "200":
+                    description: successful operation
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    Envelope:
+                                        type: object
+                                        properties:
+                                            Body:
+                                                type: object
+                                                properties:
+                                                    gelenEfaturaOnaylaResponse:
+                                                        type: object
+                                                        properties:
+                                                            gelenEfaturaOnaylaResult:
+                                                                type: object
+                                                                properties:
+                                                                    Tveri:
+                                                                        type: object
+                                                                        properties:
+                                                                            UBLExtensions:
+                                                                                type: object
+                                                                                properties:
+                                                                                    UBLExtension:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                            UBLVersionID:
+                                                                                type: string
+                                                                            CustomizationID:
+                                                                                type: string
+                                                                            ProfileID:
+                                                                                type: string
+                                                                            ID:
+                                                                                type: string
+                                                                            CopyIndicator:
+                                                                                type: string
+                                                                            UUID:
+                                                                                type: string
+                                                                            IssueDate:
+                                                                                type: string
+                                                                            IssueTime:
+                                                                                type: string
+                                                                            InvoiceTypeCode:
+                                                                                type: string
+                                                                            Note:
+                                                                                type: array
+                                                                                items:
+                                                                                    type: string
+                                                                            DocumentCurrencyCode:
+                                                                                type: string
+                                                                            TaxCurrencyCode:
+                                                                                type: string
+                                                                            PricingCurrencyCode:
+                                                                                type: string
+                                                                            PaymentCurrencyCode:
+                                                                                type: string
+                                                                            PaymentAlternativeCurrencyCode:
+                                                                                type: string
+                                                                            AccountingCost:
+                                                                                type: string
+                                                                            LineCountNumeric:
+                                                                                type: string
+                                                                            InvoicePeriod:
+                                                                                type: object
+                                                                                properties:
+                                                                                    StartDate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    StartTime:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    EndDate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    EndTime:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DurationMeasure:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    Description:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            OrderReference:
+                                                                                type: object
+                                                                                properties:
+                                                                                    ID:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    SalesOrderID:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    IssueDate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    OrderTypeCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentReference:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            BillingReference:
+                                                                                type: object
+                                                                                properties:
+                                                                                    InvoiceDocumentReference:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    SelfBilledInvoiceDocumentReference:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    CreditNoteDocumentReference:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    SelfBilledCreditNoteDocumentReference:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DebitNoteDocumentReference:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    ReminderDocumentReference:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    AdditionalDocumentReference:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    BillingReferenceLine:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                            DespatchDocumentReference:
+                                                                                type: object
+                                                                                properties:
+                                                                                    ID:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    IssueDate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentTypeCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentType:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentDescription:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    Attachment:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    ValidityPeriod:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    IssuerParty:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            ReceiptDocumentReference:
+                                                                                type: object
+                                                                                properties:
+                                                                                    ID:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    IssueDate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentTypeCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentType:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentDescription:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    Attachment:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    ValidityPeriod:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    IssuerParty:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            OriginatorDocumentReference:
+                                                                                type: object
+                                                                                properties:
+                                                                                    ID:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    IssueDate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentTypeCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentType:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentDescription:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    Attachment:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    ValidityPeriod:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    IssuerParty:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            ContractDocumentReference:
+                                                                                type: object
+                                                                                properties:
+                                                                                    ID:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    IssueDate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentTypeCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentType:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentDescription:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    Attachment:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    ValidityPeriod:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    IssuerParty:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            AdditionalDocumentReference:
+                                                                                type: object
+                                                                                properties:
+                                                                                    ID:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    IssueDate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentTypeCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentType:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DocumentDescription:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    Attachment:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    ValidityPeriod:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    IssuerParty:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            Signature:
+                                                                                type: object
+                                                                                properties:
+                                                                                    ID:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    SignatoryParty:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DigitalSignatureAttachment:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            AccountingSupplierParty:
+                                                                                type: object
+                                                                                properties:
+                                                                                    Party:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DespatchContact:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            AccountingCustomerParty:
+                                                                                type: object
+                                                                                properties:
+                                                                                    Party:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DeliveryContact:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            BuyerCustomerParty:
+                                                                                type: object
+                                                                                properties:
+                                                                                    Party:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DeliveryContact:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            SellerSupplierParty:
+                                                                                type: object
+                                                                                properties:
+                                                                                    Party:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DespatchContact:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            TaxRepresentativeParty:
+                                                                                type: object
+                                                                                properties:
+                                                                                    WebsiteURI:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    EndpointID:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    IndustryClassificationCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PartyIdentification:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    PartyName:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PostalAddress:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PhysicalLocation:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PartyTaxScheme:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PartyLegalEntity:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    Contact:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    Person:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    AgentParty:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            Delivery:
+                                                                                type: object
+                                                                                properties:
+                                                                                    ID:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    Quantity:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    ActualDeliveryDate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    ActualDeliveryTime:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    LatestDeliveryDate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    LatestDeliveryTime:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    TrackingID:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DeliveryAddress:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    AlternativeDeliveryLocation:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    EstimatedDeliveryPeriod:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    CarrierParty:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DeliveryParty:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    Despatch:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    DeliveryTerms:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    Shipment:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            PaymentMeans:
+                                                                                type: object
+                                                                                properties:
+                                                                                    PaymentMeansCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PaymentDueDate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PaymentChannelCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    InstructionNote:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PayerFinancialAccount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PayeeFinancialAccount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            PaymentTerms:
+                                                                                type: object
+                                                                                properties:
+                                                                                    Note:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PenaltySurchargePercent:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    Amount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PenaltyAmount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PaymentDueDate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    SettlementPeriod:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            AllowanceCharge:
+                                                                                type: object
+                                                                                properties:
+                                                                                    ChargeIndicator:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    AllowanceChargeReason:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    MultiplierFactorNumeric:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    SequenceNumeric:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    Amount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    BaseAmount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PerUnitAmount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            TaxExchangeRate:
+                                                                                type: object
+                                                                                properties:
+                                                                                    SourceCurrencyCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    TargetCurrencyCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    CalculationRate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    Date:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            PricingExchangeRate:
+                                                                                type: object
+                                                                                properties:
+                                                                                    SourceCurrencyCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    TargetCurrencyCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    CalculationRate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    Date:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            PaymentExchangeRate:
+                                                                                type: object
+                                                                                properties:
+                                                                                    SourceCurrencyCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    TargetCurrencyCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    CalculationRate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    Date:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            PaymentAlternativeExchangeRate:
+                                                                                type: object
+                                                                                properties:
+                                                                                    SourceCurrencyCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    TargetCurrencyCode:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    CalculationRate:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    Date:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            TaxTotal:
+                                                                                type: object
+                                                                                properties:
+                                                                                    TaxAmount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    TaxSubtotal:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                            WithholdingTaxTotal:
+                                                                                type: object
+                                                                                properties:
+                                                                                    TaxAmount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    TaxSubtotal:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                            LegalMonetaryTotal:
+                                                                                type: object
+                                                                                properties:
+                                                                                    LineExtensionAmount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    TaxExclusiveAmount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    TaxInclusiveAmount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    AllowanceTotalAmount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    ChargeTotalAmount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PayableRoundingAmount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    PayableAmount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                            InvoiceLine:
+                                                                                type: object
+                                                                                properties:
+                                                                                    ID:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    Note:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    InvoicedQuantity:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    LineExtensionAmount:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    OrderLineReference:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    DespatchLineReference:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    ReceiptLineReference:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    Delivery:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    AllowanceCharge:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    TaxTotal:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    WithholdingTaxTotal:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                                                                                    Item:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    Price:
+                                                                                        type: string
+                                                                                        nullable: true
+                                                                                    SubInvoiceLine:
+                                                                                        type: array
+                                                                                        items:
+                                                                                            type: string
+                                                                                        nullable: true
+                "400":
+                    description: Bad Request
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    faultstring:
+                                        type: string
+                "401":
+                    description: Unauthorized
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    faultstring:
+                                        type: string
+                "403":
+                    description: Forbidden
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    faultstring:
+                                        type: string
+                "404":
+                    description: Not Found
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    faultstring:
+                                        type: string
 components:
     securitySchemes:
         ApiKeyAuth:
