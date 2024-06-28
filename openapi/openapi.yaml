@@ -877,6 +877,42 @@ paths:
                                                                                         items:
                                                                                             type: string
                                                                                             nullable: true
+                "400":
+                    description: Bad Request
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    faultstring:
+                                        type: string
+                "401":
+                    description: Unauthorized
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    faultstring:
+                                        type: string
+                "403":
+                    description: Forbidden
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    faultstring:
+                                        type: string
+                "404":
+                    description: Not Found
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    faultstring:
+                                        type: string
 components:
     securitySchemes:
         ApiKeyAuth:
