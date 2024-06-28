@@ -4628,8 +4628,10 @@ paths:
                                                                     type: string
                                                         vtKaydet:
                                                             type: boolean
-                                vtKaydet:
-                                    type: boolean
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
                                 fatura:
                                     type: object
                                     properties:
@@ -4986,12 +4988,247 @@ paths:
                                                     satisDovizKur:
                                                         type: number
                                                         format: decimal
-                responses:
-                    "200":
-                        description: OK
+                                        otvs:
+                                            type: array
+                                            items:
+                                                type: object
+                                                properties:
+                                                    Oran:
+                                                        type: number
+                                                        format: double
+                                                    Kodu:
+                                                        type: string
+                                                    Adi:
+                                                        type: string
+                                                    Tutari:
+                                                        type: number
+                                                        format: double
+                                        tevkifats:
+                                            type: array
+                                            items:
+                                                type: object
+                                                properties:
+                                                    Oran:
+                                                        type: number
+                                                        format: double
+                                                    Kodu:
+                                                        type: string
+                                                    Adi:
+                                                        type: string
+                                                    Tutari:
+                                                        type: number
+                                                        format: double
+                                        eFaturaTicariIsle:
+                                            type: boolean
+                                        eTicaretMesajKutusu:
+                                            type: object
+                                            properties:
+                                                tarih:
+                                                    type: string
+                                                    format: date-time
+                                                odemeSekli:
+                                                    type: string
+                                                kargoUnvan:
+                                                    type: string
+                                                kargoVergiNo:
+                                                    type: string
+                                                webAdress:
+                                                    type: string
+                                        eFaturaMi:
+                                            type: boolean
+                                        banka:
+                                            type: object
+                                            properties:
+                                                id:
+                                                    type: integer
+                                                banka_adi:
+                                                    type: string
+                                                banka_sube:
+                                                    type: string
+                                                hesap_no:
+                                                    type: string
+                                                sube_no:
+                                                    type: string
+                                                iban:
+                                                    type: string
+                                                kullaniciAdi:
+                                                    type: string
+                                                subeAdi:
+                                                    type: string
+                                                AcquirerId:
+                                                    type: string
+                                        ULKE:
+                                            type: string
+                                        SiparisNo:
+                                            type: string
+                                        SiparisTarihi:
+                                            type: string
+                                            format: date-time
+                                        IrsaliyeNo:
+                                            type: string
+                                        IrsaliyeTarihi:
+                                            type: string
+                                            format: date-time
+                                        SeciliPKEtiketi:
+                                            type: string
+                                        CariIBAN:
+                                            type: string
+                                        faturaKodlar:
+                                            type: array
+                                            items:
+                                                type: object
+                                                properties:
+                                                    id:
+                                                        type: integer
+                                                    fat_id:
+                                                        type: integer
+                                                    kod:
+                                                        type: string
+                                                    deger:
+                                                        type: string
+                                                    tablo_adi:
+                                                        type: string
+                                                    tablo_id:
+                                                        type: integer
+                                        CariSonBakiye:
+                                            type: string
+                                        DokumanNo:
+                                            type: string
+                                        PeriyotBaslangic:
+                                            type: string
+                                            format: date-time
+                                        PeriyotBitis:
+                                            type: string
+                                            format: date-time
+                                        MukellefKodu:
+                                            type: string
+                                        MukellefAdi:
+                                            type: string
+                                        kasa_id:
+                                            type: integer
+                                        odemeYapacakVKn:
+                                            type: string
+                                        SevkBilgileri:
+                                            type: object
+                                            properties:
+                                                id:
+                                                    type: integer
+                                                fat_id:
+                                                    type: integer
+                                                teslim_eden_ad_soyad:
+                                                    type: string
+                                                teslim_eden_telefon:
+                                                    type: string
+                                                teslim_eden_fax:
+                                                    type: string
+                                                teslim_eden_email:
+                                                    type: string
+                                                tasiyici_firma_vkn_tckn:
+                                                    type: string
+                                                tasiyici_firma_ad:
+                                                    type: string
+                                                tasiyici_firma_soyad:
+                                                    type: string
+                                                tasiyici_firma_ulke:
+                                                    type: string
+                                                tasiyici_firma_il:
+                                                    type: string
+                                                tasiyici_firma_ilce:
+                                                    type: string
+                                                tasima_uniteleri_dorse_plaka_no:
+                                                    type: string
+                                                plaka:
+                                                    type: string
+                                                kullaniciAdi:
+                                                    type: string
+                                                subeAdi:
+                                                    type: string
+                                        SoforBilgileriList:
+                                            type: array
+                                            items:
+                                                type: object
+                                                properties:
+                                                    id:
+                                                        type: integer
+                                                    fat_id:
+                                                        type: integer
+                                                    tckn:
+                                                        type: string
+                                                    sofor_ad:
+                                                        type: string
+                                                    sofor_soyad:
+                                                        type: string
+                                                    kullaniciAdi:
+                                                        type: string
+                                                    subeAdi:
+                                                        type: string
+                                        FaturaTeslimAdres:
+                                            type: object
+                                            properties:
+                                                id:
+                                                    type: integer
+                                                fat_id:
+                                                    type: integer
+                                                yetkili:
+                                                    type: string
+                                                tel:
+                                                    type: string
+                                                cep:
+                                                    type: string
+                                                sevkAdres:
+                                                    type: string
+                                                mail:
+                                                    type: string
+                                                postaKodu:
+                                                    type: string
+                                                il:
+                                                    type: string
+                                                ilce:
+                                                    type: string
+                                                ulke:
+                                                    type: string
+                                        GibMi:
+                                            type: boolean
+                                        MalKabulId:
+                                            type: string
+                                        MalKabulTarih:
+                                            type: string
+                                            format: date-time
+                                        EkBelge:
+                                            type: object
+                                            properties:
+                                                ekBelgeAd:
+                                                    type: string
+                                                ekBelgeTip:
+                                                    type: string
+                                                ekBelgeByte:
+                                                    type: array
+                                                    items:
+                                                        type: string
+                                                        format: byte
+                                                mimeCode:
+                                                    type: string
+                                        digerVergi_Toplam:
+                                            type: number
+                                            format: decimal
+                                        kdvOran10:
+                                            type: number
+                                            format: decimal
+                                        kdvOran20:
+                                            type: number
+                                            format: decimal
+                                        mukellefKodu:
+                                            type: string
+                                        odemeSekliId:
+                                            type: integer
+                                        faturaTurId:
+                                            type: integer
+                                        dovizTurId:
+                                            type: integer
+                required: true
             responses:
                 "200":
-                    description: successful operation
+                    description: OK
                     content:
                         application/soap+xml:
                             schema:
@@ -5036,6 +5273,8 @@ paths:
                                 properties:
                                     error:
                                         type: string
+            tags:
+                - GidenFaturalar
     /gidenFaturalar:
         post:
             summary: Giden Faturalar
