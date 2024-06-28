@@ -144,6 +144,8 @@ paths:
         post:
             summary: Kontör Yükle
             operationId: kontorYukle
+            security:
+                - ApiKeyAuth: []
             requestBody:
                 content:
                     application/json:
