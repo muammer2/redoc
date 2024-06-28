@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-    title: KontorYukle API
-    description: KontorYukle API documentation
+    title: OnaySmsGonder API
+    description: OnaySmsGonder API documentation
     version: v1.0
     license:
         name: Apache 2.0
@@ -9,6 +9,8 @@ info:
 servers:
     - url: https://virtserver.swaggerhub.com/Muammeryeni/swagtoredoc/v1.2
       description: SwaggerHub API Auto Mocking
+    - url: https://api.bilsoft.com/v1_11/EFaturaApi
+      description: Bilsoft API Server
     - url: https://api.bilsoft.com/v1_11/EFaturaApi
       description: Bilsoft API Server
     - url: https://api.bilsoft.com/v1_11/EFaturaApi
@@ -159,6 +161,27 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/KontorYukleResponse"
+                "400":
+                    description: Hatalı istek
+    /OnaySmsGonder:
+        post:
+            summary: Onay SMS Gönder
+            operationId: onaySmsGonder
+            security:
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/OnaySmsGonderRequest"
+                required: true
+            responses:
+                "200":
+                    description: Başarılı
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/OnaySmsGonderResponse"
                 "400":
                     description: Hatalı istek
 components:
@@ -832,6 +855,79 @@ components:
                         "#/components/schemas/KontorYukleResponse_Envelope_Body_KontorYukleRespon\
                         se_KontorYukleResult"
         KontorYukleResponse_Envelope_Body_KontorYukleResponse_KontorYukleResult:
+            type: object
+            properties:
+                basariliMi:
+                    type: boolean
+                mesaj:
+                    type: string
+                veri:
+                    type: string
+                efaturaNo:
+                    type: string
+                efaturaId:
+                    type: string
+                efaturaSenaryo:
+                    type: string
+                fisNo:
+                    type: integer
+                evrakNo:
+                    type: string
+                efaturaDurum:
+                    type: string
+        OnaySmsGonderRequest:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/OnaySmsGonderRequest_Envelope"
+        OnaySmsGonderRequest_Envelope:
+            type: object
+            properties:
+                Header:
+                    $ref: "#/components/schemas/OnaySmsGonderRequest_Envelope_Header"
+                Body:
+                    $ref: "#/components/schemas/OnaySmsGonderRequest_Envelope_Body"
+        OnaySmsGonderRequest_Envelope_Header:
+            type: object
+            properties:
+                Authentication:
+                    $ref: "#/components/schemas/Authentication"
+                KullaniciBilgileri:
+                    $ref: "#/components/schemas/KullaniciBilgileri"
+                AutHeader:
+                    $ref: "#/components/schemas/AutHeader"
+        OnaySmsGonderRequest_Envelope_Body:
+            type: object
+            properties:
+                OnaySmsGonder:
+                    $ref: "#/components/schemas/OnaySmsGonderRequest_Envelope_Body_OnaySmsGonder"
+        OnaySmsGonderRequest_Envelope_Body_OnaySmsGonder:
+            type: object
+        OnaySmsGonderResponse:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/OnaySmsGonderResponse_Envelope"
+        OnaySmsGonderResponse_Envelope:
+            type: object
+            properties:
+                Body:
+                    $ref: "#/components/schemas/OnaySmsGonderResponse_Envelope_Body"
+        OnaySmsGonderResponse_Envelope_Body:
+            type: object
+            properties:
+                OnaySmsGonderResponse:
+                    $ref:
+                        "#/components/schemas/OnaySmsGonderResponse_Envelope_Body_OnaySmsGonderRe\
+                        sponse"
+        OnaySmsGonderResponse_Envelope_Body_OnaySmsGonderResponse:
+            type: object
+            properties:
+                OnaySmsGonderResult:
+                    $ref:
+                        "#/components/schemas/OnaySmsGonderResponse_Envelope_Body_OnaySmsGonderRe\
+                        sponse_OnaySmsGonderResult"
+        OnaySmsGonderResponse_Envelope_Body_OnaySmsGonderResponse_OnaySmsGonderResult:
             type: object
             properties:
                 basariliMi:
