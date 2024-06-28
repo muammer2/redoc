@@ -253,6 +253,27 @@ paths:
                                 $ref: "#/components/schemas/DurumGideneEfaturaSorgulaResponse"
                 "400":
                     description: Hatalı istek
+    /eFaturaKaydet:
+        post:
+            summary: eFatura Kaydet
+            operationId: eFaturaKaydet
+            security:
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/EFaturaKaydetRequest"
+                required: true
+            responses:
+                "200":
+                    description: Başarılı
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/EFaturaKaydetResponse"
+                "400":
+                    description: Hatalı istek
 components:
     securitySchemes:
         ApiKeyAuth:
@@ -1932,3 +1953,331 @@ components:
                     type: string
                 ExtraInformation:
                     type: string
+        EFaturaKaydetRequest:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/EFaturaKaydetRequest_Envelope"
+        EFaturaKaydetRequest_Envelope:
+            type: object
+            properties:
+                Header:
+                    $ref: "#/components/schemas/EFaturaKaydetRequest_Envelope_Header"
+                Body:
+                    $ref: "#/components/schemas/EFaturaKaydetRequest_Envelope_Body"
+        EFaturaKaydetRequest_Envelope_Header:
+            type: object
+            properties:
+                Authentication:
+                    $ref: "#/components/schemas/Authentication"
+                KullaniciBilgileri:
+                    $ref: "#/components/schemas/KullaniciBilgileri"
+                AutHeader:
+                    $ref: "#/components/schemas/AutHeader"
+        EFaturaKaydetRequest_Envelope_Body:
+            type: object
+            properties:
+                eFaturaKaydet:
+                    $ref: "#/components/schemas/EFaturaKaydetRequest_Envelope_Body_eFaturaKaydet"
+        EFaturaKaydetRequest_Envelope_Body_eFaturaKaydet:
+            type: object
+            properties:
+                fatura:
+                    $ref: "#/components/schemas/Fatura"
+                firmaBilgiler:
+                    $ref: "#/components/schemas/FirmaBilgiler"
+                vtKaydet:
+                    type: boolean
+                DirekGibeGonder:
+                    type: boolean
+        Fatura:
+            type: object
+            properties:
+                ID:
+                    type: integer
+                IDGUID:
+                    type: string
+                CARI_ID:
+                    type: integer
+                UNVAN:
+                    type: string
+                ADRES:
+                    type: string
+                VD:
+                    type: string
+                VN:
+                    type: string
+                FAT_TARIH:
+                    type: string
+                    format: date-time
+                SEVK_TARIH:
+                    type: string
+                    format: date-time
+                VADE_TARIH:
+                    type: string
+                    format: date-time
+                SAAT:
+                    type: string
+                TOPLAM:
+                    type: number
+                    format: decimal
+                KDV:
+                    type: number
+                    format: decimal
+                GTOPLAM:
+                    type: number
+                    format: decimal
+                YAZI:
+                    type: string
+                IL:
+                    type: string
+                ILCE:
+                    type: string
+                odeme_sekli:
+                    type: string
+                FATURA_TURU:
+                    type: string
+                YETKILI:
+                    type: string
+                odenen:
+                    type: number
+                    format: decimal
+                EVRAK_NO:
+                    type: string
+                ALINAN:
+                    type: number
+                    format: decimal
+                MALIYET:
+                    type: number
+                    format: decimal
+                ISKONTO:
+                    type: number
+                    format: decimal
+                fisno:
+                    type: integer
+                tel:
+                    type: string
+                fax:
+                    type: string
+                cep:
+                    type: string
+                postakodu:
+                    type: string
+                sevk_adresi:
+                    type: string
+                aciklama:
+                    type: string
+                kullaniciAdi:
+                    type: string
+                subeAdi:
+                    type: string
+                ticaretsicilno:
+                    type: string
+                tevkifat_oran:
+                    type: string
+                tevkifat_tutar:
+                    type: number
+                    format: decimal
+                cari_kod:
+                    type: string
+                faturaResimYolu:
+                    type: string
+                otv_tutar:
+                    type: number
+                    format: decimal
+                oiv_tutar:
+                    type: number
+                    format: decimal
+                eFaturaNo:
+                    type: string
+                eFaturaSenaryo:
+                    type: string
+                eFaturaTipi:
+                    type: string
+                eFaturaDurum:
+                    type: string
+                eFaturaSenaryoTipi:
+                    type: string
+                eFaturaMailGonderildiMi:
+                    type: boolean
+                IrsaliyeFaturalandi:
+                    type: boolean
+                CARI_GRUP:
+                    type: string
+                CARI_MAIL:
+                    type: string
+                WebAdres:
+                    type: string
+                ozelAlan1:
+                    type: string
+                ozelAlan2:
+                    type: string
+                stopajOran1:
+                    type: string
+                stopajTutar1:
+                    type: string
+                stopajOran2:
+                    type: string
+                stopajTutar2:
+                    type: string
+                stopajOran3:
+                    type: string
+                stopajTutar3:
+                    type: string
+                stopajOran4:
+                    type: string
+                stopajTutar4:
+                    type: string
+                kdvOran1:
+                    type: number
+                    format: decimal
+                kdvOran8:
+                    type: number
+                    format: decimal
+                kdvOran18:
+                    type: number
+                    format: decimal
+                paraBirimiEfatura:
+                    type: string
+                dovizKur:
+                    type: number
+                    format: decimal
+                eIlaveFaturaTipi:
+                    type: string
+                faturaIslems:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/FaturaIslem"
+                otvs:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/Vergiler"
+                tevkifats:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/Vergiler"
+                eFaturaTicariIsle:
+                    type: boolean
+                eTicaretMesajKutusu:
+                    $ref: "#/components/schemas/ETicaretMesajKutusu"
+                eFaturaMi:
+                    type: boolean
+                banka:
+                    $ref: "#/components/schemas/Banka"
+                ULKE:
+                    type: string
+                SiparisNo:
+                    type: string
+                SiparisTarihi:
+                    type: string
+                    format: date-time
+                IrsaliyeNo:
+                    type: string
+                IrsaliyeTarihi:
+                    type: string
+                    format: date-time
+                SeciliPKEtiketi:
+                    type: string
+                CariIBAN:
+                    type: string
+                faturaKodlar:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/FaturaKodlar"
+                CariSonBakiye:
+                    type: string
+                DokumanNo:
+                    type: string
+                PeriyotBaslangic:
+                    type: string
+                    format: date-time
+                PeriyotBitis:
+                    type: string
+                    format: date-time
+                MukellefKodu:
+                    type: string
+                MukellefAdi:
+                    type: string
+                kasa_id:
+                    type: integer
+                odemeYapacakVKn:
+                    type: string
+                SevkBilgileri:
+                    $ref: "#/components/schemas/SevkBilgileri"
+                SoforBilgileriList:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/SoforBilgileri"
+                FaturaTeslimAdres:
+                    $ref: "#/components/schemas/FaturaTeslimAdres"
+                GibMi:
+                    type: boolean
+                MalKabulId:
+                    type: string
+                MalKabulTarih:
+                    type: string
+                    format: date-time
+                EkBelge:
+                    $ref: "#/components/schemas/EkBelge"
+                digerVergi_Toplam:
+                    type: number
+                    format: decimal
+                kdvOran10:
+                    type: number
+                    format: decimal
+                kdvOran20:
+                    type: number
+                    format: decimal
+                mukellefKodu:
+                    type: string
+                odemeSekliId:
+                    type: integer
+                faturaTurId:
+                    type: integer
+                dovizTurId:
+                    type: integer
+        EFaturaKaydetResponse:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/EFaturaKaydetResponse_Envelope"
+        EFaturaKaydetResponse_Envelope:
+            type: object
+            properties:
+                Body:
+                    $ref: "#/components/schemas/EFaturaKaydetResponse_Envelope_Body"
+        EFaturaKaydetResponse_Envelope_Body:
+            type: object
+            properties:
+                eFaturaKaydetResponse:
+                    $ref:
+                        "#/components/schemas/EFaturaKaydetResponse_Envelope_Body_eFaturaKaydetRe\
+                        sponse"
+        EFaturaKaydetResponse_Envelope_Body_eFaturaKaydetResponse:
+            type: object
+            properties:
+                eFaturaKaydetResult:
+                    $ref:
+                        "#/components/schemas/EFaturaKaydetResponse_Envelope_Body_eFaturaKaydetRe\
+                        sponse_eFaturaKaydetResult"
+        EFaturaKaydetResponse_Envelope_Body_eFaturaKaydetResponse_eFaturaKaydetResult:
+            type: object
+            properties:
+                Tveri:
+                    type: array
+                    items:
+                        $ref:
+                            "#/components/schemas/EFaturaKaydetResponse_Envelope_Body_eFaturaKaydetRe\
+                            sponse_eFaturaKaydetResult_Value"
+        EFaturaKaydetResponse_Envelope_Body_eFaturaKaydetResponse_eFaturaKaydetResult_Value:
+            type: object
+            properties:
+                Id:
+                    type: string
+                Number:
+                    type: string
+                InvoiceScenario:
+                    type: string
+                    enum:
+                        - eInvoice
+                        - eArchive
