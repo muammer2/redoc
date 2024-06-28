@@ -3339,6 +3339,330 @@ paths:
                                 properties:
                                     faultstring:
                                         type: string
+    /gelenGidenFaturalarDetay:
+        post:
+            summary: Gelen Giden Faturalar Detay
+            operationId: gelenGidenFaturalarDetay
+            security:
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/soap+xml:
+                        schema:
+                            type: object
+                            properties:
+                                Envelope:
+                                    type: object
+                                    properties:
+                                        Header:
+                                            type: object
+                                            properties:
+                                                Authentication:
+                                                    type: object
+                                                    properties:
+                                                        Kullanici:
+                                                            type: string
+                                                        Sifre:
+                                                            type: string
+                                                        ApiTur:
+                                                            type: string
+                                                        Spy:
+                                                            type: object
+                                                            properties:
+                                                                Spy1:
+                                                                    type: string
+                                                                Spy2:
+                                                                    type: string
+                                                KullaniciBilgileri:
+                                                    type: object
+                                                    properties:
+                                                        xsltEfatura:
+                                                            type: string
+                                                        xsltEarsiv:
+                                                            type: string
+                                                        servisUrl:
+                                                            type: string
+                                                        kullanici:
+                                                            type: string
+                                                        sifre:
+                                                            type: string
+                                                        GelenStokKaydet:
+                                                            type: boolean
+                                                        vtBilgiler:
+                                                            type: object
+                                                            properties:
+                                                                Server:
+                                                                    type: string
+                                                                Port:
+                                                                    type: string
+                                                                Database:
+                                                                    type: string
+                                                                VKullanici:
+                                                                    type: string
+                                                                VSifre:
+                                                                    type: string
+                                                                WebServisMesaj:
+                                                                    type: string
+                                                                WebServisCevap:
+                                                                    type: string
+                                                        EFaturaSeriBaslik:
+                                                            type: string
+                                                        EArsivSeriBaslik:
+                                                            type: string
+                                                        SeciliGBEtiketi:
+                                                            type: string
+                                                        entegrasyonTur:
+                                                            type: string
+                                                            enum:
+                                                                - EFatura
+                                                                - EIrsaliye
+                                                                - BilsoftMail
+                                                                - EMustahsil
+                                                        logoSessionID:
+                                                            type: string
+                                                        logo2FACode:
+                                                            type: string
+                                                        gibMi:
+                                                            type: boolean
+                                                        FirmaVergiNo:
+                                                            type: string
+                                                AutHeader:
+                                                    type: object
+                                                    properties:
+                                                        Donem:
+                                                            type: string
+                                                        VergiNo:
+                                                            type: string
+                                                        VeritabaniAd:
+                                                            type: string
+                                                        KullaniciAdi:
+                                                            type: string
+                                                        Sifre:
+                                                            type: string
+                                                        Sube:
+                                                            type: string
+                                                        IpAdresi:
+                                                            type: string
+                                                        MacAdresi:
+                                                            type: string
+                                                        DovizAktifMi:
+                                                            type: string
+                                        Body:
+                                            type: object
+                                            properties:
+                                                gelenGidenFaturalarDetay:
+                                                    type: object
+                                                    properties:
+                                                        efaturaNo:
+                                                            type: string
+                                                        gidenGelenEnum:
+                                                            type: string
+                                                            enum:
+                                                                - GelenFatura
+                                                                - GidenFatura
+            responses:
+                "200":
+                    description: successful operation
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    Envelope:
+                                        type: object
+                                        properties:
+                                            Body:
+                                                type: object
+                                                properties:
+                                                    gelenGidenFaturalarDetayResponse:
+                                                        type: object
+                                                        properties:
+                                                            gelenGidenFaturalarDetayResult:
+                                                                type: object
+                                                                properties:
+                                                                    Tveri:
+                                                                        type: object
+                                                                        properties:
+                                                                            InvoiceType:
+                                                                                type: array
+                                                                                items:
+                                                                                    type: object
+                                                                                    properties:
+                                                                                        schemaLocation:
+                                                                                            type: string
+                                                                                        UBLExtensions:
+                                                                                            type: array
+                                                                                            items:
+                                                                                                type: object
+                                                                                        UBLVersionID:
+                                                                                            type: string
+                                                                                            nullable: true
+                                                                                        CustomizationID:
+                                                                                            type: string
+                                                                                            nullable: true
+                                                                                        ProfileID:
+                                                                                            type: string
+                                                                                            nullable: true
+                                                                                        ID:
+                                                                                            type: string
+                                                                                            nullable: true
+                                                                                        CopyIndicator:
+                                                                                            type: boolean
+                                                                                            nullable: true
+                                                                                        UUID:
+                                                                                            type: string
+                                                                                            nullable: true
+                                                                                        IssueDate:
+                                                                                            type: string
+                                                                                            format: date
+                                                                                            nullable: true
+                                                                                        IssueTime:
+                                                                                            type: string
+                                                                                            format: time
+                                                                                            nullable: true
+                                                                                        InvoiceTypeCode:
+                                                                                            type: string
+                                                                                            nullable: true
+                                                                                        Note:
+                                                                                            type: array
+                                                                                            items:
+                                                                                                type: string
+                                                                                            nullable: true
+                                                                                        DocumentCurrencyCode:
+                                                                                            type: string
+                                                                                            nullable: true
+                                                                                        TaxCurrencyCode:
+                                                                                            type: string
+                                                                                            nullable: true
+                                                                                        PricingCurrencyCode:
+                                                                                            type: string
+                                                                                            nullable: true
+                                                                                        PaymentCurrencyCode:
+                                                                                            type: string
+                                                                                            nullable: true
+                                                                                        PaymentAlternativeCurrencyCode:
+                                                                                            type: string
+                                                                                            nullable: true
+                                                                                        AccountingCost:
+                                                                                            type: string
+                                                                                            nullable: true
+                                                                                        LineCountNumeric:
+                                                                                            type: number
+                                                                                            nullable: true
+                                                                                        InvoicePeriod:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        OrderReference:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        BillingReference:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        DespatchDocumentReference:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        ReceiptDocumentReference:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        OriginatorDocumentReference:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        ContractDocumentReference:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        AdditionalDocumentReference:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        Signature:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        AccountingSupplierParty:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        AccountingCustomerParty:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        BuyerCustomerParty:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        SellerSupplierParty:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        TaxRepresentativeParty:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        Delivery:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        PaymentMeans:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        PaymentTerms:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        AllowanceCharge:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        TaxExchangeRate:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        PricingExchangeRate:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        PaymentExchangeRate:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        PaymentAlternativeExchangeRate:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        TaxTotal:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        WithholdingTaxTotal:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        LegalMonetaryTotal:
+                                                                                            type: object
+                                                                                            nullable: true
+                                                                                        InvoiceLine:
+                                                                                            type: object
+                                                                                            nullable: true
+                "400":
+                    description: Bad Request
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    faultstring:
+                                        type: string
+                "401":
+                    description: Unauthorized
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    faultstring:
+                                        type: string
+                "403":
+                    description: Forbidden
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    faultstring:
+                                        type: string
+                "404":
+                    description: Not Found
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    faultstring:
+                                        type: string
 components:
     securitySchemes:
         ApiKeyAuth:
