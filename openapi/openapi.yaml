@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-    title: Bilsoft Efatura API
+    title: DurumGideneEfaturaSorgula API
     description: DurumGideneEfaturaSorgula API documentation
-    version: 1.0.0
+    version: v1.0
     license:
         name: Apache 2.0
         url: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -701,6 +701,15 @@ paths:
                                                                                     enum:
                                                                                         - eInvoice
                                                                                         - eArchive
+                "400":
+                    description: Bad Request
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    faultstring:
+                                        type: string
 components:
     securitySchemes:
         ApiKeyAuth:
