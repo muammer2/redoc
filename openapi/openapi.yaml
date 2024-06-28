@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-    title: DurumGideneEfaturaSorgula API
-    description: DurumGideneEfaturaSorgula API documentation
-    version: v1.0
+    title: Soapla to Redocly
+    description: Soap ile yazılmış api dokümasyonunun redocly versiyonu 
+    version: v1
     license:
         name: Apache 2.0
         url: https://www.apache.org/licenses/LICENSE-2.0.html
