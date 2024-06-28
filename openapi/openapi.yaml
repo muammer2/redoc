@@ -8689,8 +8689,3 @@ components:
                     enum:
                         - eInvoice
                         - eArchive
-securitySchemes:
-    ApiKeyAuth:
-        type: apiKey
-        in: header
-        name: ApiKey
