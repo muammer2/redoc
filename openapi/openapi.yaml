@@ -52,6 +52,27 @@ paths:
                 $ref: '#/components/schemas/FaturaIsaretlemeResponse'
         "400":
           description: Hatalı istek
+  /GetLogo2FACode:
+    post:
+      summary: Logo 2FA kodu al
+      operationId: getLogo2FACode
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetLogo2FACodeRequest'
+        required: true
+      responses:
+        "200":
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetLogo2FACodeResponse'
+        "400":
+          description: Hatalı istek
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -331,6 +352,69 @@ components:
         FaturaIsaretlemeResult:
           $ref: '#/components/schemas/FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaretlemeResponse_FaturaIsaretlemeResult'
     FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaretlemeResponse_FaturaIsaretlemeResult:
+      type: object
+      properties:
+        basariliMi:
+          type: boolean
+        mesaj:
+          type: string
+        veri:
+          type: string
+        efaturaNo:
+          type: string
+        efaturaId:
+          type: string
+        efaturaSenaryo:
+          type: string
+        fisNo:
+          type: integer
+        evrakNo:
+          type: string
+        efaturaDurum:
+          type: string
+    GetLogo2FACodeRequest:
+      type: object
+      properties:
+        Envelope:
+          $ref: '#/components/schemas/GetLogo2FACodeRequest_Envelope'
+    GetLogo2FACodeRequest_Envelope:
+      type: object
+      properties:
+        Header:
+          $ref: '#/components/schemas/AktivasyonEkleRequest_Envelope_Header'
+        Body:
+          $ref: '#/components/schemas/GetLogo2FACodeRequest_Envelope_Body'
+    GetLogo2FACodeRequest_Envelope_Body:
+      type: object
+      properties:
+        GetLogo2FACode:
+          $ref: '#/components/schemas/GetLogo2FACodeRequest_Envelope_Body_GetLogo2FACode'
+    GetLogo2FACodeRequest_Envelope_Body_GetLogo2FACode:
+      type: object
+      properties:
+        cepno:
+          type: string
+    GetLogo2FACodeResponse:
+      type: object
+      properties:
+        Envelope:
+          $ref: '#/components/schemas/GetLogo2FACodeResponse_Envelope'
+    GetLogo2FACodeResponse_Envelope:
+      type: object
+      properties:
+        Body:
+          $ref: '#/components/schemas/GetLogo2FACodeResponse_Envelope_Body'
+    GetLogo2FACodeResponse_Envelope_Body:
+      type: object
+      properties:
+        GetLogo2FACodeResponse:
+          $ref: '#/components/schemas/GetLogo2FACodeResponse_Envelope_Body_GetLogo2FACodeResponse'
+    GetLogo2FACodeResponse_Envelope_Body_GetLogo2FACodeResponse:
+      type: object
+      properties:
+        GetLogo2FACodeResult:
+          $ref: '#/components/schemas/GetLogo2FACodeResponse_Envelope_Body_GetLogo2FACodeResponse_GetLogo2FACodeResult'
+    GetLogo2FACodeResponse_Envelope_Body_GetLogo2FACodeResponse_GetLogo2FACodeResult:
       type: object
       properties:
         basariliMi:
