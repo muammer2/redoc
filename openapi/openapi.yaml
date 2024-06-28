@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-    title: SmsOnayKodu API
-    description: SmsOnayKodu API documentation
+    title: UblOnizleme API
+    description: UblOnizleme API documentation
     version: v1.0
     license:
         name: Apache 2.0
@@ -9,6 +9,8 @@ info:
 servers:
     - url: https://virtserver.swaggerhub.com/Muammeryeni/swagtoredoc/v1.2
       description: SwaggerHub API Auto Mocking
+    - url: https://api.bilsoft.com/v1_11/EFaturaApi
+      description: Bilsoft API Server
     - url: https://api.bilsoft.com/v1_11/EFaturaApi
       description: Bilsoft API Server
     - url: https://api.bilsoft.com/v1_11/EFaturaApi
@@ -205,6 +207,27 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/SmsOnayKoduResponse"
+                "400":
+                    description: Hatalı istek
+    /UblOnizleme:
+        post:
+            summary: UBL Önizleme
+            operationId: ublOnizleme
+            security:
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/UblOnizlemeRequest"
+                required: true
+            responses:
+                "200":
+                    description: Başarılı
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/UblOnizlemeResponse"
                 "400":
                     description: Hatalı istek
 components:
@@ -1050,4 +1073,715 @@ components:
                 evrakNo:
                     type: string
                 efaturaDurum:
+                    type: string
+        UblOnizlemeRequest:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/UblOnizlemeRequest_Envelope"
+        UblOnizlemeRequest_Envelope:
+            type: object
+            properties:
+                Header:
+                    $ref: "#/components/schemas/UblOnizlemeRequest_Envelope_Header"
+                Body:
+                    $ref: "#/components/schemas/UblOnizlemeRequest_Envelope_Body"
+        UblOnizlemeRequest_Envelope_Header:
+            type: object
+            properties:
+                Authentication:
+                    $ref: "#/components/schemas/Authentication"
+                KullaniciBilgileri:
+                    $ref: "#/components/schemas/KullaniciBilgileri"
+                AutHeader:
+                    $ref: "#/components/schemas/AutHeader"
+        UblOnizlemeRequest_Envelope_Body:
+            type: object
+            properties:
+                UblOnizleme:
+                    $ref: "#/components/schemas/UblOnizlemeRequest_Envelope_Body_UblOnizleme"
+        UblOnizlemeRequest_Envelope_Body_UblOnizleme:
+            type: object
+            properties:
+                xmlFatura:
+                    $ref: "#/components/schemas/XmlFatura"
+                firmaBilgiler:
+                    $ref: "#/components/schemas/FirmaBilgiler"
+                xsltTasarim:
+                    type: string
+        UblOnizlemeResponse:
+            type: object
+            properties:
+                Envelope:
+                    $ref: "#/components/schemas/UblOnizlemeResponse_Envelope"
+        UblOnizlemeResponse_Envelope:
+            type: object
+            properties:
+                Body:
+                    $ref: "#/components/schemas/UblOnizlemeResponse_Envelope_Body"
+        UblOnizlemeResponse_Envelope_Body:
+            type: object
+            properties:
+                UblOnizlemeResponse:
+                    $ref:
+                        "#/components/schemas/UblOnizlemeResponse_Envelope_Body_UblOnizlemeRespon\
+                        se"
+        UblOnizlemeResponse_Envelope_Body_UblOnizlemeResponse:
+            type: object
+            properties:
+                UblOnizlemeResult:
+                    $ref:
+                        "#/components/schemas/UblOnizlemeResponse_Envelope_Body_UblOnizlemeRespon\
+                        se_UblOnizlemeResult"
+        UblOnizlemeResponse_Envelope_Body_UblOnizlemeResponse_UblOnizlemeResult:
+            type: object
+            properties:
+                basariliMi:
+                    type: boolean
+                mesaj:
+                    type: string
+                veri:
+                    type: string
+                efaturaNo:
+                    type: string
+                efaturaId:
+                    type: string
+                efaturaSenaryo:
+                    type: string
+                fisNo:
+                    type: integer
+                evrakNo:
+                    type: string
+                efaturaDurum:
+                    type: string
+        XmlFatura:
+            type: object
+            properties:
+                ID:
+                    type: integer
+                IDGUID:
+                    type: string
+                CARI_ID:
+                    type: integer
+                UNVAN:
+                    type: string
+                ADRES:
+                    type: string
+                VD:
+                    type: string
+                VN:
+                    type: string
+                FAT_TARIH:
+                    type: string
+                    format: date-time
+                SEVK_TARIH:
+                    type: string
+                    format: date-time
+                VADE_TARIH:
+                    type: string
+                    format: date-time
+                SAAT:
+                    type: string
+                TOPLAM:
+                    type: number
+                    format: decimal
+                KDV:
+                    type: number
+                    format: decimal
+                GTOPLAM:
+                    type: number
+                    format: decimal
+                YAZI:
+                    type: string
+                IL:
+                    type: string
+                ILCE:
+                    type: string
+                odeme_sekli:
+                    type: string
+                FATURA_TURU:
+                    type: string
+                YETKILI:
+                    type: string
+                odenen:
+                    type: number
+                    format: decimal
+                EVRAK_NO:
+                    type: string
+                ALINAN:
+                    type: number
+                    format: decimal
+                MALIYET:
+                    type: number
+                    format: decimal
+                ISKONTO:
+                    type: number
+                    format: decimal
+                fisno:
+                    type: integer
+                tel:
+                    type: string
+                fax:
+                    type: string
+                cep:
+                    type: string
+                postakodu:
+                    type: string
+                sevk_adresi:
+                    type: string
+                aciklama:
+                    type: string
+                kullaniciAdi:
+                    type: string
+                subeAdi:
+                    type: string
+                ticaretsicilno:
+                    type: string
+                tevkifat_oran:
+                    type: string
+                tevkifat_tutar:
+                    type: number
+                    format: decimal
+                cari_kod:
+                    type: string
+                faturaResimYolu:
+                    type: string
+                otv_tutar:
+                    type: number
+                    format: decimal
+                oiv_tutar:
+                    type: number
+                    format: decimal
+                eFaturaNo:
+                    type: string
+                eFaturaSenaryo:
+                    type: string
+                eFaturaTipi:
+                    type: string
+                eFaturaDurum:
+                    type: string
+                eFaturaSenaryoTipi:
+                    type: string
+                eFaturaMailGonderildiMi:
+                    type: boolean
+                IrsaliyeFaturalandi:
+                    type: boolean
+                CARI_GRUP:
+                    type: string
+                CARI_MAIL:
+                    type: string
+                WebAdres:
+                    type: string
+                ozelAlan1:
+                    type: string
+                ozelAlan2:
+                    type: string
+                stopajOran1:
+                    type: string
+                stopajTutar1:
+                    type: string
+                stopajOran2:
+                    type: string
+                stopajTutar2:
+                    type: string
+                stopajOran3:
+                    type: string
+                stopajTutar3:
+                    type: string
+                stopajOran4:
+                    type: string
+                stopajTutar4:
+                    type: string
+                kdvOran1:
+                    type: number
+                    format: decimal
+                kdvOran8:
+                    type: number
+                    format: decimal
+                kdvOran18:
+                    type: number
+                    format: decimal
+                paraBirimiEfatura:
+                    type: string
+                dovizKur:
+                    type: number
+                    format: decimal
+                eIlaveFaturaTipi:
+                    type: string
+                faturaIslems:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/FaturaIslem"
+                otvs:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/Vergiler"
+                tevkifats:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/Vergiler"
+                eFaturaTicariIsle:
+                    type: boolean
+                eTicaretMesajKutusu:
+                    $ref: "#/components/schemas/ETicaretMesajKutusu"
+                eFaturaMi:
+                    type: boolean
+                banka:
+                    $ref: "#/components/schemas/Banka"
+                ULKE:
+                    type: string
+                SiparisNo:
+                    type: string
+                SiparisTarihi:
+                    type: string
+                    format: date-time
+                IrsaliyeNo:
+                    type: string
+                IrsaliyeTarihi:
+                    type: string
+                    format: date-time
+                SeciliPKEtiketi:
+                    type: string
+                CariIBAN:
+                    type: string
+                faturaKodlar:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/FaturaKodlar"
+                CariSonBakiye:
+                    type: string
+                DokumanNo:
+                    type: string
+                PeriyotBaslangic:
+                    type: string
+                    format: date-time
+                PeriyotBitis:
+                    type: string
+                    format: date-time
+                MukellefKodu:
+                    type: string
+                MukellefAdi:
+                    type: string
+                kasa_id:
+                    type: integer
+                odemeYapacakVKn:
+                    type: string
+                SevkBilgileri:
+                    $ref: "#/components/schemas/SevkBilgileri"
+                SoforBilgileriList:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/SoforBilgileri"
+                FaturaTeslimAdres:
+                    $ref: "#/components/schemas/FaturaTeslimAdres"
+                GibMi:
+                    type: boolean
+                MalKabulId:
+                    type: string
+                MalKabulTarih:
+                    type: string
+                    format: date-time
+                EkBelge:
+                    $ref: "#/components/schemas/EkBelge"
+                digerVergi_Toplam:
+                    type: number
+                    format: decimal
+                kdvOran10:
+                    type: number
+                    format: decimal
+                kdvOran20:
+                    type: number
+                    format: decimal
+                mukellefKodu:
+                    type: string
+                odemeSekliId:
+                    type: integer
+                faturaTurId:
+                    type: integer
+                dovizTurId:
+                    type: integer
+        FirmaBilgiler:
+            type: object
+            properties:
+                gondericiVkn:
+                    type: string
+                gondericiUnvan:
+                    type: string
+                gondericimersisNo:
+                    type: string
+                gondericiticaretSicilNo:
+                    type: string
+                gondericiIl:
+                    type: string
+                gondericiCaddeSokak:
+                    type: string
+                gondericiUlke:
+                    type: string
+                gondericiKapiNo:
+                    type: string
+                gondericiIlce:
+                    type: string
+                gondericiMail:
+                    type: string
+                gondericiTelefon:
+                    type: string
+                gondericiAdSoyad:
+                    type: string
+                gondericiVergiDairesi:
+                    type: string
+                gondericiWebSite:
+                    type: string
+        FaturaIslem:
+            type: object
+            properties:
+                ID:
+                    type: integer
+                FAT_ID:
+                    type: integer
+                URUN_KODU:
+                    type: string
+                BARKOD:
+                    type: string
+                AD:
+                    type: string
+                MIKTAR:
+                    type: number
+                    format: decimal
+                BRFIYAT:
+                    type: number
+                    format: decimal
+                TOPFIYAT:
+                    type: number
+                    format: decimal
+                gtopfiyat:
+                    type: number
+                    format: decimal
+                kdv_tutar:
+                    type: number
+                    format: decimal
+                kdv_oran:
+                    type: number
+                    format: decimal
+                STOK_ID:
+                    type: integer
+                maliyet:
+                    type: number
+                    format: decimal
+                iskonto_oran:
+                    type: number
+                    format: decimal
+                iskonto_tutar:
+                    type: number
+                    format: decimal
+                iskonto_oran2:
+                    type: number
+                    format: decimal
+                iskonto_tutar2:
+                    type: number
+                    format: decimal
+                iskonto_oran3:
+                    type: number
+                    format: decimal
+                iskonto_tutar3:
+                    type: number
+                    format: decimal
+                birim:
+                    type: string
+                kullaniciAdi:
+                    type: string
+                subeAdi:
+                    type: string
+                depo_id:
+                    type: integer
+                otv_tutar:
+                    type: number
+                    format: decimal
+                otv_oran:
+                    type: number
+                    format: decimal
+                otv_kodu:
+                    type: string
+                otv_adi:
+                    type: string
+                oiv_tutar:
+                    type: number
+                    format: decimal
+                oiv_oran:
+                    type: number
+                    format: decimal
+                oiv_kodu:
+                    type: string
+                oiv_adi:
+                    type: string
+                tevkifat_oran:
+                    type: number
+                    format: decimal
+                tevkifat_kodu:
+                    type: string
+                tevkifat_adi:
+                    type: string
+                tevkifat_tutar:
+                    type: number
+                    format: decimal
+                kdv_muafiyet_adi:
+                    type: string
+                kdv_muafiyet_kodu:
+                    type: string
+                kdv_dahil:
+                    type: string
+                otv_dahil:
+                    type: string
+                oiv_dahil:
+                    type: string
+                kdv_durum:
+                    type: string
+                resimYolu:
+                    type: string
+                stokRafi:
+                    type: string
+                lot_id:
+                    type: integer
+                LotNumarasi:
+                    type: string
+                SonKullanmaTarihi:
+                    type: string
+                    format: date-time
+                UretimTarihi:
+                    type: string
+                    format: date-time
+                UretimZamani:
+                    type: string
+                    format: date-time
+                IzNumarasi:
+                    type: string
+                KayitNumarasi:
+                    type: string
+                SeriNumarasi:
+                    type: string
+                stokOzelKod1:
+                    type: string
+                stokOzelKod2:
+                    type: string
+                stokOzelKod3:
+                    type: string
+                stokOzelKod4:
+                    type: string
+                paraBirimiEfatura:
+                    type: string
+                TeslimSartiKodu:
+                    type: string
+                TeslimSartiAdi:
+                    type: string
+                GonderilmeSekliKodu:
+                    type: string
+                GonderilmeSekliAdi:
+                    type: string
+                GtipNo:
+                    type: string
+                KapCinsiKodu:
+                    type: string
+                KapCinsiAdi:
+                    type: string
+                KapNo:
+                    type: string
+                KapAdet:
+                    type: number
+                    format: double
+                GumrukTakipNo:
+                    type: string
+                AliciUrunKodu:
+                    type: string
+                SaticiUrunKodu:
+                    type: string
+                SeriNo:
+                    type: string
+                KunyeNo:
+                    type: string
+                MalSahibi:
+                    type: string
+                MalSahibiVknTckn:
+                    type: string
+                digerVergi_oran:
+                    type: number
+                    format: decimal
+                digerVergi_kodu:
+                    type: string
+                digerVergi_adi:
+                    type: string
+                digerVergi_tutar:
+                    type: number
+                    format: decimal
+                digerVergi_muafiyet_adi:
+                    type: string
+                digerVergi_muafiyet_kodu:
+                    type: string
+                kdvDahilId:
+                    type: integer
+                OtvDahilId:
+                    type: integer
+                OivDahilId:
+                    type: integer
+                alisDovizTurId:
+                    type: integer
+                alisDovizKur:
+                    type: number
+                    format: decimal
+                satisDovizTurId:
+                    type: integer
+                satisDovizKur:
+                    type: number
+                    format: decimal
+        Vergiler:
+            type: object
+            properties:
+                Oran:
+                    type: number
+                    format: double
+                Kodu:
+                    type: string
+                Adi:
+                    type: string
+                Tutari:
+                    type: number
+                    format: double
+        ETicaretMesajKutusu:
+            type: object
+            properties:
+                tarih:
+                    type: string
+                    format: date-time
+                odemeSekli:
+                    type: string
+                kargoUnvan:
+                    type: string
+                kargoVergiNo:
+                    type: string
+                webAdress:
+                    type: string
+        Banka:
+            type: object
+            properties:
+                id:
+                    type: integer
+                banka_adi:
+                    type: string
+                banka_sube:
+                    type: string
+                hesap_no:
+                    type: string
+                sube_no:
+                    type: string
+                iban:
+                    type: string
+                kullaniciAdi:
+                    type: string
+                subeAdi:
+                    type: string
+                AcquirerId:
+                    type: string
+        FaturaKodlar:
+            type: object
+            properties:
+                id:
+                    type: integer
+                fat_id:
+                    type: integer
+                kod:
+                    type: string
+                deger:
+                    type: string
+                tablo_adi:
+                    type: string
+                tablo_id:
+                    type: integer
+        SevkBilgileri:
+            type: object
+            properties:
+                id:
+                    type: integer
+                fat_id:
+                    type: integer
+                teslim_eden_ad_soyad:
+                    type: string
+                teslim_eden_telefon:
+                    type: string
+                teslim_eden_fax:
+                    type: string
+                teslim_eden_email:
+                    type: string
+                tasiyici_firma_vkn_tckn:
+                    type: string
+                tasiyici_firma_ad:
+                    type: string
+                tasiyici_firma_soyad:
+                    type: string
+                tasiyici_firma_ulke:
+                    type: string
+                tasiyici_firma_il:
+                    type: string
+                tasiyici_firma_ilce:
+                    type: string
+                tasima_uniteleri_dorse_plaka_no:
+                    type: string
+                plaka:
+                    type: string
+                kullaniciAdi:
+                    type: string
+                subeAdi:
+                    type: string
+        SoforBilgileri:
+            type: object
+            properties:
+                id:
+                    type: integer
+                fat_id:
+                    type: integer
+                tckn:
+                    type: string
+                sofor_ad:
+                    type: string
+                sofor_soyad:
+                    type: string
+                kullaniciAdi:
+                    type: string
+                subeAdi:
+                    type: string
+        FaturaTeslimAdres:
+            type: object
+            properties:
+                id:
+                    type: integer
+                fat_id:
+                    type: integer
+                yetkili:
+                    type: string
+                tel:
+                    type: string
+                cep:
+                    type: string
+                sevkAdres:
+                    type: string
+                mail:
+                    type: string
+                postaKodu:
+                    type: string
+                il:
+                    type: string
+                ilce:
+                    type: string
+                ulke:
+                    type: string
+        EkBelge:
+            type: object
+            properties:
+                ekBelgeAd:
+                    type: string
+                ekBelgeTip:
+                    type: string
+                ekBelgeByte:
+                    type: array
+                    items:
+                        type: string
+                        format: byte
+                mimeCode:
                     type: string
