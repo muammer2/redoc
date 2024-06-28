@@ -5039,6 +5039,42 @@ paths:
                                                                                             type: string
                                                                                         InvoiceLine:
                                                                                             type: string
+                "400":
+                    description: Bad Request
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                "401":
+                    description: Unauthorized
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                "404":
+                    description: Not Found
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                "500":
+                    description: Internal Server Error
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
 components:
     securitySchemes:
         ApiKeyAuth:
