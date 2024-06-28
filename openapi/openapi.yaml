@@ -4881,6 +4881,287 @@ paths:
                                 properties:
                                     error:
                                         type: string
+    /gidenFaturalarIsNet:
+        post:
+            summary: Giden Faturalar IsNet
+            operationId: gidenFaturalarIsNet
+            security:
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/soap+xml:
+                        schema:
+                            type: object
+                            properties:
+                                Envelope:
+                                    type: object
+                                    properties:
+                                        Header:
+                                            type: object
+                                            properties:
+                                                Authentication:
+                                                    type: object
+                                                    properties:
+                                                        Kullanici:
+                                                            type: string
+                                                        Sifre:
+                                                            type: string
+                                                        ApiTur:
+                                                            type: string
+                                                        Spy:
+                                                            type: object
+                                                            properties:
+                                                                Spy1:
+                                                                    type: string
+                                                                Spy2:
+                                                                    type: string
+                                                KullaniciBilgileri:
+                                                    type: object
+                                                    properties:
+                                                        xsltEfatura:
+                                                            type: string
+                                                        xsltEarsiv:
+                                                            type: string
+                                                        servisUrl:
+                                                            type: string
+                                                        kullanici:
+                                                            type: string
+                                                        sifre:
+                                                            type: string
+                                                        GelenStokKaydet:
+                                                            type: boolean
+                                                        vtBilgiler:
+                                                            type: object
+                                                            properties:
+                                                                Server:
+                                                                    type: string
+                                                                Port:
+                                                                    type: string
+                                                                Database:
+                                                                    type: string
+                                                                VKullanici:
+                                                                    type: string
+                                                                VSifre:
+                                                                    type: string
+                                                                WebServisMesaj:
+                                                                    type: string
+                                                                WebServisCevap:
+                                                                    type: string
+                                                        EFaturaSeriBaslik:
+                                                            type: string
+                                                        EArsivSeriBaslik:
+                                                            type: string
+                                                        SeciliGBEtiketi:
+                                                            type: string
+                                                        entegrasyonTur:
+                                                            type: string
+                                                            enum:
+                                                                - EFatura
+                                                                - EIrsaliye
+                                                                - BilsoftMail
+                                                                - EMustahsil
+                                                        logoSessionID:
+                                                            type: string
+                                                        logo2FACode:
+                                                            type: string
+                                                        gibMi:
+                                                            type: boolean
+                                                        FirmaVergiNo:
+                                                            type: string
+                                                AutHeader:
+                                                    type: object
+                                                    properties:
+                                                        Donem:
+                                                            type: string
+                                                        VergiNo:
+                                                            type: string
+                                                        VeritabaniAd:
+                                                            type: string
+                                                        KullaniciAdi:
+                                                            type: string
+                                                        Sifre:
+                                                            type: string
+                                                        Sube:
+                                                            type: string
+                                                        IpAdresi:
+                                                            type: string
+                                                        MacAdresi:
+                                                            type: string
+                                                        DovizAktifMi:
+                                                            type: string
+                                        Body:
+                                            type: object
+                                            properties:
+                                                gidenFaturalarIsNet:
+                                                    type: object
+                                                    properties:
+                                                        basTarih:
+                                                            type: string
+                                                            format: date-time
+                                                        bitTarih:
+                                                            type: string
+                                                            format: date-time
+            responses:
+                "200":
+                    description: successful operation
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    Envelope:
+                                        type: object
+                                        properties:
+                                            Body:
+                                                type: object
+                                                properties:
+                                                    gidenFaturalarIsNetResponse:
+                                                        type: object
+                                                        properties:
+                                                            gidenFaturalarIsNetResult:
+                                                                type: object
+                                                                properties:
+                                                                    Tveri:
+                                                                        type: object
+                                                                        properties:
+                                                                            InvoiceType:
+                                                                                type: array
+                                                                                items:
+                                                                                    type: object
+                                                                                    properties:
+                                                                                        UBLExtensions:
+                                                                                            type: string
+                                                                                        UBLVersionID:
+                                                                                            type: string
+                                                                                        CustomizationID:
+                                                                                            type: string
+                                                                                        ProfileID:
+                                                                                            type: string
+                                                                                        ID:
+                                                                                            type: string
+                                                                                        CopyIndicator:
+                                                                                            type: string
+                                                                                        UUID:
+                                                                                            type: string
+                                                                                        IssueDate:
+                                                                                            type: string
+                                                                                        IssueTime:
+                                                                                            type: string
+                                                                                        InvoiceTypeCode:
+                                                                                            type: string
+                                                                                        Note:
+                                                                                            type: string
+                                                                                        DocumentCurrencyCode:
+                                                                                            type: string
+                                                                                        TaxCurrencyCode:
+                                                                                            type: string
+                                                                                        PricingCurrencyCode:
+                                                                                            type: string
+                                                                                        PaymentCurrencyCode:
+                                                                                            type: string
+                                                                                        PaymentAlternativeCurrencyCode:
+                                                                                            type: string
+                                                                                        AccountingCost:
+                                                                                            type: string
+                                                                                        LineCountNumeric:
+                                                                                            type: string
+                                                                                        InvoicePeriod:
+                                                                                            type: string
+                                                                                        OrderReference:
+                                                                                            type: string
+                                                                                        BillingReference:
+                                                                                            type: string
+                                                                                        DespatchDocumentReference:
+                                                                                            type: string
+                                                                                        ReceiptDocumentReference:
+                                                                                            type: string
+                                                                                        OriginatorDocumentReference:
+                                                                                            type: string
+                                                                                        ContractDocumentReference:
+                                                                                            type: string
+                                                                                        AdditionalDocumentReference:
+                                                                                            type: string
+                                                                                        Signature:
+                                                                                            type: string
+                                                                                        AccountingSupplierParty:
+                                                                                            type: string
+                                                                                        AccountingCustomerParty:
+                                                                                            type: string
+                                                                                        BuyerCustomerParty:
+                                                                                            type: string
+                                                                                        SellerSupplierParty:
+                                                                                            type: string
+                                                                                        TaxRepresentativeParty:
+                                                                                            type: string
+                                                                                        Delivery:
+                                                                                            type: string
+                                                                                        PaymentMeans:
+                                                                                            type: string
+                                                                                        PaymentTerms:
+                                                                                            type: string
+                                                                                        AllowanceCharge:
+                                                                                            type: string
+                                                                                        TaxExchangeRate:
+                                                                                            type: string
+                                                                                        PricingExchangeRate:
+                                                                                            type: string
+                                                                                        PaymentExchangeRate:
+                                                                                            type: string
+                                                                                        PaymentAlternativeExchangeRate:
+                                                                                            type: string
+                                                                                        TaxTotal:
+                                                                                            type: string
+                                                                                        WithholdingTaxTotal:
+                                                                                            type: string
+                                                                                        LegalMonetaryTotal:
+                                                                                            type: string
+                                                                                        InvoiceLine:
+                                                                                            type: string
+                "400":
+                    description: Bad request
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                "401":
+                    description: Unauthorized
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                "403":
+                    description: Forbidden
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                "404":
+                    description: Not Found
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                "500":
+                    description: Internal Server Error
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
 components:
     securitySchemes:
         ApiKeyAuth:
