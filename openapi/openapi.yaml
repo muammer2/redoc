@@ -98,6 +98,8 @@ paths:
     post:
       summary: Kalan Kontör Sorgula
       operationId: kalanKontorSorgula
+      security:
+        - ApiKeyAuth: []
       requestBody:
         content:
           application/json:
