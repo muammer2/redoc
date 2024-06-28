@@ -1,12 +1,11 @@
----
 openapi: 3.0.0
 info:
   title: Bilsoft E-Fatura API
   description: Bilsoft E-Fatura API dökümantasyonu
   version: v1.2
 servers:
-- url: https://virtserver.swaggerhub.com/Muammeryeni/swagtoredoc/v1.2
-  description: SwaggerHub API Auto Mocking
+  - url: https://virtserver.swaggerhub.com/Muammeryeni/swagtoredoc/v1.2
+    description: SwaggerHub API Auto Mocking
 paths:
   /AktivasyonEkle:
     post:
@@ -28,6 +27,13 @@ paths:
           description: Hatalı istek
 components:
   schemas:
+    Authentication_Spy:
+      type: object
+      properties:
+        Spy1:
+          type: string
+        Spy2:
+          type: string
     Authentication:
       type: object
       properties:
@@ -39,6 +45,23 @@ components:
           type: string
         Spy:
           $ref: '#/components/schemas/Authentication_Spy'
+    KullaniciBilgileri_vtBilgiler:
+      type: object
+      properties:
+        Server:
+          type: string
+        Port:
+          type: string
+        Database:
+          type: string
+        VKullanici:
+          type: string
+        VSifre:
+          type: string
+        WebServisMesaj:
+          type: string
+        WebServisCevap:
+          type: string
     KullaniciBilgileri:
       type: object
       properties:
@@ -65,10 +88,10 @@ components:
         entegrasyonTur:
           type: string
           enum:
-          - EFatura
-          - EIrsaliye
-          - BilsoftMail
-          - EMustahsil
+            - EFatura
+            - EIrsaliye
+            - BilsoftMail
+            - EMustahsil
         logoSessionID:
           type: string
         logo2FACode:
@@ -147,40 +170,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Aktivasyon'
-    AktivasyonEkleRequest:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/AktivasyonEkleRequest_Envelope'
-    AktivasyonEkleResponse:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/AktivasyonEkleResponse_Envelope'
-    Authentication_Spy:
-      type: object
-      properties:
-        Spy1:
-          type: string
-        Spy2:
-          type: string
-    KullaniciBilgileri_vtBilgiler:
-      type: object
-      properties:
-        Server:
-          type: string
-        Port:
-          type: string
-        Database:
-          type: string
-        VKullanici:
-          type: string
-        VSifre:
-          type: string
-        WebServisMesaj:
-          type: string
-        WebServisCevap:
-          type: string
     AktivasyonEkleRequest_Envelope_Header:
       type: object
       properties:
@@ -207,6 +196,11 @@ components:
           $ref: '#/components/schemas/AktivasyonEkleRequest_Envelope_Header'
         Body:
           $ref: '#/components/schemas/AktivasyonEkleRequest_Envelope_Body'
+    AktivasyonEkleRequest:
+      type: object
+      properties:
+        Envelope:
+          $ref: '#/components/schemas/AktivasyonEkleRequest_Envelope'
     AktivasyonEkleResponse_Envelope_Body_AktivasyonEkleResponse_AktivasyonEkleResult:
       type: object
       properties:
@@ -243,3 +237,8 @@ components:
       properties:
         Body:
           $ref: '#/components/schemas/AktivasyonEkleResponse_Envelope_Body'
+    AktivasyonEkleResponse:
+      type: object
+      properties:
+        Envelope:
+          $ref: '#/components/schemas/AktivasyonEkleResponse_Envelope'
