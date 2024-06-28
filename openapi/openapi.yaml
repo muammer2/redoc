@@ -277,6 +277,7 @@ paths:
     /v1_11/EFaturaApi/BilsoftEfaturaApi.asmx:
         post:
             summary: eFaturaKaydetBilsoft
+            operationId: eFaturaKaydetBilsoft
             security:
                 - ApiKeyAuth: []
             requestBody:
