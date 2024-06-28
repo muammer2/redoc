@@ -115,6 +115,27 @@ paths:
                 $ref: '#/components/schemas/KalanKontorSorgulaResponse'
         "400":
           description: Hatalı istek
+          /KontorHareket:
+    post:
+      summary: Kontor Hareket
+      operationId: kontorHareket
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KontorHareketRequest'
+        required: true
+      responses:
+        "200":
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KontorHareketResponse'
+        "400":
+          description: Hatalı istek
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -605,3 +626,175 @@ components:
         KalanKontorAdet:
           type: number
           format: decimal
+          KontorHareketRequest:
+      type: object
+      properties:
+        Envelope:
+          $ref: '#/components/schemas/KontorHareketRequest_Envelope'
+    KontorHareketRequest_Envelope:
+      type: object
+      properties:
+        Header:
+          $ref: '#/components/schemas/KontorHareketRequest_Envelope_Header'
+        Body:
+          $ref: '#/components/schemas/KontorHareketRequest_Envelope_Body'
+    KontorHareketRequest_Envelope_Header:
+      type: object
+      properties:
+        Authentication:
+          $ref: '#/components/schemas/Authentication'
+        KullaniciBilgileri:
+          $ref: '#/components/schemas/KullaniciBilgileri'
+        AutHeader:
+          $ref: '#/components/schemas/AutHeader'
+    KontorHareketRequest_Envelope_Body:
+      type: object
+      properties:
+        KontorHareket:
+          $ref: '#/components/schemas/KontorHareketRequest_Envelope_Body_KontorHareket'
+    KontorHareketRequest_Envelope_Body_KontorHareket:
+      type: object
+      properties:
+        vkn:
+          type: string
+    KontorHareketResponse:
+      type: object
+      properties:
+        Envelope:
+          $ref: '#/components/schemas/KontorHareketResponse_Envelope'
+    KontorHareketResponse_Envelope:
+      type: object
+      properties:
+        Body:
+          $ref: '#/components/schemas/KontorHareketResponse_Envelope_Body'
+    KontorHareketResponse_Envelope_Body:
+      type: object
+      properties:
+        KontorHareketResponse:
+          $ref: '#/components/schemas/KontorHareketResponse_Envelope_Body_KontorHareketResponse'
+    KontorHareketResponse_Envelope_Body_KontorHareketResponse:
+      type: object
+      properties:
+        KontorHareketResult:
+          $ref: '#/components/schemas/KontorHareketResponse_Envelope_Body_KontorHareketResponse_KontorHareketResult'
+    KontorHareketResponse_Envelope_Body_KontorHareketResponse_KontorHareketResult:
+      type: object
+      properties:
+        Tveri:
+          $ref: '#/components/schemas/KontorHareketResponse_Envelope_Body_KontorHareketResponse_KontorHareketResult_Tveri'
+    KontorHareketResponse_Envelope_Body_KontorHareketResponse_KontorHareketResult_Tveri:
+      type: object
+      properties:
+        KontorHareket:
+          type: array
+          items:
+            $ref: '#/components/schemas/KontorHareketItem'
+    KontorHareketItem:
+      type: object
+      properties:
+        KullanimBaslangicTarih:
+          type: string
+          format: date-time
+        KullanimBitisTarih:
+          type: string
+          format: date-time
+        SureDolduMu:
+          type: boolean
+        Miktar:
+          type: integer
+        SonBakiye:
+          type: integer
+    Authentication_Spy:
+      type: object
+      properties:
+        Spy1:
+          type: string
+        Spy2:
+          type: string
+    Authentication:
+      type: object
+      properties:
+        Kullanici:
+          type: string
+        Sifre:
+          type: string
+        ApiTur:
+          type: string
+        Spy:
+          $ref: '#/components/schemas/Authentication_Spy'
+    KullaniciBilgileri_vtBilgiler:
+      type: object
+      properties:
+        Server:
+          type: string
+        Port:
+          type: string
+        Database:
+          type: string
+        VKullanici:
+          type: string
+        VSifre:
+          type: string
+        WebServisMesaj:
+          type: string
+        WebServisCevap:
+          type: string
+    KullaniciBilgileri:
+      type: object
+      properties:
+        xsltEfatura:
+          type: string
+        xsltEarsiv:
+          type: string
+        servisUrl:
+          type: string
+        kullanici:
+          type: string
+        sifre:
+          type: string
+        GelenStokKaydet:
+          type: boolean
+        vtBilgiler:
+          $ref: '#/components/schemas/KullaniciBilgileri_vtBilgiler'
+        EFaturaSeriBaslik:
+          type: string
+        EArsivSeriBaslik:
+          type: string
+        SeciliGBEtiketi:
+          type: string
+        entegrasyonTur:
+          type: string
+          enum:
+            - EFatura
+            - EIrsaliye
+            - BilsoftMail
+            - EMustahsil
+        logoSessionID:
+          type: string
+        logo2FACode:
+          type: string
+        gibMi:
+          type: boolean
+        FirmaVergiNo:
+          type: string
+    AutHeader:
+      type: object
+      properties:
+        Donem:
+          type: string
+        VergiNo:
+          type: string
+        VeritabaniAd:
+          type: string
+        KullaniciAdi:
+          type: string
+        Sifre:
+          type: string
+        Sube:
+          type: string
+        IpAdresi:
+          type: string
+        MacAdresi:
+          type: string
+        DovizAktifMi:
+          type: string
