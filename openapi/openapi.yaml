@@ -94,6 +94,25 @@ paths:
                 $ref: '#/components/schemas/GibUblOnizlemeResponse'
         "400":
           description: Hatalı istek
+  /KalanKontorSorgula:
+    post:
+      summary: Kalan Kontör Sorgula
+      operationId: kalanKontorSorgula
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KalanKontorSorgulaRequest'
+        required: true
+      responses:
+        "200":
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KalanKontorSorgulaResponse'
+        "400":
+          description: Hatalı istek
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -519,4 +538,68 @@ components:
           type: string
         efaturaDurum:
           type: string
-          
+    KalanKontorSorgulaRequest:
+      type: object
+      properties:
+        Envelope:
+          $ref: '#/components/schemas/KalanKontorSorgulaRequest_Envelope'
+    KalanKontorSorgulaRequest_Envelope:
+      type: object
+      properties:
+        Header:
+          $ref: '#/components/schemas/KalanKontorSorgulaRequest_Envelope_Header'
+        Body:
+          $ref: '#/components/schemas/KalanKontorSorgulaRequest_Envelope_Body'
+    KalanKontorSorgulaRequest_Envelope_Header:
+      type: object
+      properties:
+        Authentication:
+          $ref: '#/components/schemas/Authentication'
+        KullaniciBilgileri:
+          $ref: '#/components/schemas/KullaniciBilgileri'
+        AutHeader:
+          $ref: '#/components/schemas/AutHeader'
+    KalanKontorSorgulaRequest_Envelope_Body:
+      type: object
+      properties:
+        KalanKontorSorgula:
+          $ref: '#/components/schemas/KalanKontorSorgulaRequest_Envelope_Body_KalanKontorSorgula'
+    KalanKontorSorgulaRequest_Envelope_Body_KalanKontorSorgula:
+      type: object
+      properties:
+        vergino:
+          type: string
+    KalanKontorSorgulaResponse:
+      type: object
+      properties:
+        Envelope:
+          $ref: '#/components/schemas/KalanKontorSorgulaResponse_Envelope'
+    KalanKontorSorgulaResponse_Envelope:
+      type: object
+      properties:
+        Body:
+          $ref: '#/components/schemas/KalanKontorSorgulaResponse_Envelope_Body'
+    KalanKontorSorgulaResponse_Envelope_Body:
+      type: object
+      properties:
+        KalanKontorSorgulaResponse:
+          $ref: '#/components/schemas/KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse'
+    KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse:
+      type: object
+      properties:
+        KalanKontorSorgulaResult:
+          $ref: '#/components/schemas/KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse_KalanKontorSorgulaResult'
+    KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse_KalanKontorSorgulaResult:
+      type: object
+      properties:
+        Tveri:
+          $ref: '#/components/schemas/KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse_KalanKontorSorgulaResult_Tveri'
+    KalanKontorSorgulaResponse_Envelope_Body_KalanKontorSorgulaResponse_KalanKontorSorgulaResult_Tveri:
+      type: object
+      properties:
+        ToplamKontorAdet:
+          type: number
+          format: decimal
+        KalanKontorAdet:
+          type: number
+          format: decimal
