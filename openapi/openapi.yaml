@@ -4675,6 +4675,212 @@ paths:
                                 properties:
                                     error:
                                         type: string
+    /gidenFaturalar:
+        post:
+            summary: Giden Faturalar
+            operationId: gidenFaturalar
+            security:
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/soap+xml:
+                        schema:
+                            type: object
+                            properties:
+                                Envelope:
+                                    type: object
+                                    properties:
+                                        Header:
+                                            type: object
+                                            properties:
+                                                Authentication:
+                                                    type: object
+                                                    properties:
+                                                        Kullanici:
+                                                            type: string
+                                                        Sifre:
+                                                            type: string
+                                                        ApiTur:
+                                                            type: string
+                                                        Spy:
+                                                            type: object
+                                                            properties:
+                                                                Spy1:
+                                                                    type: string
+                                                                Spy2:
+                                                                    type: string
+                                                KullaniciBilgileri:
+                                                    type: object
+                                                    properties:
+                                                        xsltEfatura:
+                                                            type: string
+                                                        xsltEarsiv:
+                                                            type: string
+                                                        servisUrl:
+                                                            type: string
+                                                        kullanici:
+                                                            type: string
+                                                        sifre:
+                                                            type: string
+                                                        GelenStokKaydet:
+                                                            type: boolean
+                                                        vtBilgiler:
+                                                            type: object
+                                                            properties:
+                                                                Server:
+                                                                    type: string
+                                                                Port:
+                                                                    type: string
+                                                                Database:
+                                                                    type: string
+                                                                VKullanici:
+                                                                    type: string
+                                                                VSifre:
+                                                                    type: string
+                                                                WebServisMesaj:
+                                                                    type: string
+                                                                WebServisCevap:
+                                                                    type: string
+                                                        EFaturaSeriBaslik:
+                                                            type: string
+                                                        EArsivSeriBaslik:
+                                                            type: string
+                                                        SeciliGBEtiketi:
+                                                            type: string
+                                                        entegrasyonTur:
+                                                            type: string
+                                                            enum:
+                                                                - EFatura
+                                                                - EIrsaliye
+                                                                - BilsoftMail
+                                                                - EMustahsil
+                                                        logoSessionID:
+                                                            type: string
+                                                        logo2FACode:
+                                                            type: string
+                                                        gibMi:
+                                                            type: boolean
+                                                        FirmaVergiNo:
+                                                            type: string
+                                                AutHeader:
+                                                    type: object
+                                                    properties:
+                                                        Donem:
+                                                            type: string
+                                                        VergiNo:
+                                                            type: string
+                                                        VeritabaniAd:
+                                                            type: string
+                                                        KullaniciAdi:
+                                                            type: string
+                                                        Sifre:
+                                                            type: string
+                                                        Sube:
+                                                            type: string
+                                                        IpAdresi:
+                                                            type: string
+                                                        MacAdresi:
+                                                            type: string
+                                                        DovizAktifMi:
+                                                            type: string
+                                        Body:
+                                            type: object
+                                            properties:
+                                                gidenFaturalar:
+                                                    type: object
+                                                    properties:
+                                                        faturaTur:
+                                                            type: string
+                                                        basTarih:
+                                                            type: string
+                                                            format: date-time
+                                                        bitTarih:
+                                                            type: string
+                                                            format: date-time
+            responses:
+                "200":
+                    description: successful operation
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    Envelope:
+                                        type: object
+                                        properties:
+                                            Body:
+                                                type: object
+                                                properties:
+                                                    gidenFaturalarResponse:
+                                                        type: object
+                                                        properties:
+                                                            gidenFaturalarResult:
+                                                                type: object
+                                                                properties:
+                                                                    Tveri:
+                                                                        type: object
+                                                                        properties:
+                                                                            OutboxInvoiceListItem:
+                                                                                type: array
+                                                                                items:
+                                                                                    type: object
+                                                                                    properties:
+                                                                                        Scenario:
+                                                                                            type: string
+                                                                                            enum:
+                                                                                                - eInvoice
+                                                                                                - eArchive
+                                                                                        ScenarioCode:
+                                                                                            type: integer
+                                                                                        LocalDocumentId:
+                                                                                            type: string
+                                                                                        ExtraInformation:
+                                                                                            type: string
+                "400":
+                    description: Bad request
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                "401":
+                    description: Unauthorized
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                "403":
+                    description: Forbidden
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                "404":
+                    description: Not Found
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                "500":
+                    description: Internal Server Error
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
 components:
     securitySchemes:
         ApiKeyAuth:
