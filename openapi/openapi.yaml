@@ -5162,6 +5162,532 @@ paths:
                                 properties:
                                     error:
                                         type: string
+    /gideneArsivFaturalarIsNet:
+        post:
+            summary: Gidene Arşiv Faturalar IsNet
+            operationId: gideneArsivFaturalarIsNet
+            security:
+                - ApiKeyAuth: []
+                - ApiKeyAuth: []
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/soap+xml:
+                        schema:
+                            type: object
+                            properties:
+                                Envelope:
+                                    type: object
+                                    properties:
+                                        Header:
+                                            type: object
+                                            properties:
+                                                Authentication:
+                                                    type: object
+                                                    properties:
+                                                        Kullanici:
+                                                            type: string
+                                                        Sifre:
+                                                            type: string
+                                                        ApiTur:
+                                                            type: string
+                                                        Spy:
+                                                            type: object
+                                                            properties:
+                                                                Spy1:
+                                                                    type: string
+                                                                Spy2:
+                                                                    type: string
+                                                KullaniciBilgileri:
+                                                    type: object
+                                                    properties:
+                                                        xsltEfatura:
+                                                            type: string
+                                                        xsltEarsiv:
+                                                            type: string
+                                                        servisUrl:
+                                                            type: string
+                                                        kullanici:
+                                                            type: string
+                                                        sifre:
+                                                            type: string
+                                                        GelenStokKaydet:
+                                                            type: boolean
+                                                        vtBilgiler:
+                                                            type: object
+                                                            properties:
+                                                                Server:
+                                                                    type: string
+                                                                Port:
+                                                                    type: string
+                                                                Database:
+                                                                    type: string
+                                                                VKullanici:
+                                                                    type: string
+                                                                VSifre:
+                                                                    type: string
+                                                                WebServisMesaj:
+                                                                    type: string
+                                                                WebServisCevap:
+                                                                    type: string
+                                                        EFaturaSeriBaslik:
+                                                            type: string
+                                                        EArsivSeriBaslik:
+                                                            type: string
+                                                        SeciliGBEtiketi:
+                                                            type: string
+                                                        entegrasyonTur:
+                                                            type: string
+                                                            enum:
+                                                                - EFatura
+                                                                - EIrsaliye
+                                                                - BilsoftMail
+                                                                - EMustahsil
+                                                        logoSessionID:
+                                                            type: string
+                                                        logo2FACode:
+                                                            type: string
+                                                        gibMi:
+                                                            type: boolean
+                                                        FirmaVergiNo:
+                                                            type: string
+                                                AutHeader:
+                                                    type: object
+                                                    properties:
+                                                        Donem:
+                                                            type: string
+                                                        VergiNo:
+                                                            type: string
+                                                        VeritabaniAd:
+                                                            type: string
+                                                        KullaniciAdi:
+                                                            type: string
+                                                        Sifre:
+                                                            type: string
+                                                        Sube:
+                                                            type: string
+                                                        IpAdresi:
+                                                            type: string
+                                                        MacAdresi:
+                                                            type: string
+                                                        DovizAktifMi:
+                                                            type: string
+                                        Body:
+                                            type: object
+                                            properties:
+                                                gideneArsivFaturalarIsNet:
+                                                    type: object
+                                                    properties:
+                                                        basTarih:
+                                                            type: string
+                                                            format: date-time
+                                                        bitTarih:
+                                                            type: string
+                                                            format: date-time
+            responses:
+                "200":
+                    description: successful operation
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    Envelope:
+                                        type: object
+                                        properties:
+                                            Body:
+                                                type: object
+                                                properties:
+                                                    gideneArsivFaturalarIsNetResponse:
+                                                        type: object
+                                                        properties:
+                                                            gideneArsivFaturalarIsNetResult:
+                                                                type: object
+                                                                properties:
+                                                                    Tveri:
+                                                                        type: object
+                                                                        properties:
+                                                                            ArchiveInvoice:
+                                                                                type: array
+                                                                                items:
+                                                                                    type: object
+                                                                                    properties:
+                                                                                        ExtensionData:
+                                                                                            type: string
+                                                                                        AccountingCost:
+                                                                                            type: string
+                                                                                        ApprovalDate:
+                                                                                            type: string
+                                                                                            format: date-time
+                                                                                        ApprovalStatus:
+                                                                                            type: string
+                                                                                            enum:
+                                                                                                - Onay_Bekliyor
+                                                                                                - Onaylandi
+                                                                                                - Reddedildi
+                                                                                                - Onay_Akisinda
+                                                                                        ArchiveCancellationReportNumber:
+                                                                                            type: string
+                                                                                        ArchiveDate:
+                                                                                            type: string
+                                                                                            format: date-time
+                                                                                        ArchiveReportNumber:
+                                                                                            type: string
+                                                                                        BankAccountList:
+                                                                                            type: string
+                                                                                        CancellationReportSendingStatus:
+                                                                                            type: string
+                                                                                            enum:
+                                                                                                - Iptal_Edilmedi
+                                                                                                - Gibe_Gonderilmek_Icin_Bekliyor
+                                                                                                - Gibe_Gonderiliyor
+                                                                                                - Gibe_Gonderildi
+                                                                                                - Gibe_Gonderilirken_Sistem_Hatasi_Olustu
+                                                                                                - Gib_Tarafinda_Hata_Olustu
+                                                                                                - Gib_Raporu_Kabul_Etti
+                                                                                        CompanyBranchAddress:
+                                                                                            type: string
+                                                                                        CrossRate:
+                                                                                            type: number
+                                                                                            format: decimal
+                                                                                        CrossRateDate:
+                                                                                            type: string
+                                                                                            format: date-time
+                                                                                        CurrencyCode:
+                                                                                            type: string
+                                                                                        DispatchList:
+                                                                                            type: string
+                                                                                        ETTN:
+                                                                                            type: string
+                                                                                        ExportRegisteredReasonCode:
+                                                                                            type: string
+                                                                                        ExternalArchiveInvoiceCode:
+                                                                                            type: string
+                                                                                        InstallationNumber:
+                                                                                            type: string
+                                                                                        InvoiceAdditionalIdentityInfo:
+                                                                                            type: string
+                                                                                        InvoiceAttachments:
+                                                                                            type: string
+                                                                                        InvoiceCreationDate:
+                                                                                            type: string
+                                                                                            format: date-time
+                                                                                        InvoiceDate:
+                                                                                            type: string
+                                                                                            format: date-time
+                                                                                        InvoiceDetails:
+                                                                                            type: string
+                                                                                        InvoiceExpenses:
+                                                                                            type: string
+                                                                                        InvoiceNumber:
+                                                                                            type: string
+                                                                                        InvoicePdf:
+                                                                                            type: string
+                                                                                            format: byte
+                                                                                        InvoiceTotalTaxList:
+                                                                                            type: string
+                                                                                        InvoiceType:
+                                                                                            type: string
+                                                                                            enum:
+                                                                                                - SATIS
+                                                                                                - IADE
+                                                                                                - ISTISNA
+                                                                                                - TEVKIFAT
+                                                                                                - OZELMATRAH
+                                                                                                - IHRACKAYITLI
+                                                                                                - SGK
+                                                                                                - KOMISYONCU
+                                                                                        InvoiceXml:
+                                                                                            type: string
+                                                                                            format: byte
+                                                                                        IsArchived:
+                                                                                            type: boolean
+                                                                                        LastPaymentDate:
+                                                                                            type: string
+                                                                                            format: date-time
+                                                                                        Notes:
+                                                                                            type: string
+                                                                                        OrderDate:
+                                                                                            type: string
+                                                                                            format: date-time
+                                                                                        OrderNumber:
+                                                                                            type: string
+                                                                                        Payment:
+                                                                                            type: string
+                                                                                        Receiver:
+                                                                                            type: string
+                                                                                        ReceiverBranchAddress:
+                                                                                            type: string
+                                                                                        ReportSendingStatus:
+                                                                                            type: string
+                                                                                            enum:
+                                                                                                - Gibe_Gonderilmek_Icin_Bekliyor
+                                                                                                - Gibe_Gonderiliyor
+                                                                                                - Gibe_Gonderildi
+                                                                                                - Gibe_Gonderilirken_Sistem_Hatasi_Olustu
+                                                                                                - Gib_Tarafinda_Hata_Olustu
+                                                                                                - Gib_Raporu_Kabul_Etti
+                                                                                        ReturnInvoiceDate:
+                                                                                            type: string
+                                                                                            format: date-time
+                                                                                        ReturnInvoiceNumber:
+                                                                                            type: string
+                                                                                        ReturnReason:
+                                                                                            type: string
+                                                                                        SendMailAutomatically:
+                                                                                            type: boolean
+                                                                                        SendingStatus:
+                                                                                            type: string
+                                                                                            enum:
+                                                                                                - Musteriye_Gonderilmedi
+                                                                                                - Musteriye_Gonderiliyor
+                                                                                                - Musteriye_Gonderildi
+                                                                                                - Musteriye_Gonderilirken_Hata_Olustu
+                                                                                        Status:
+                                                                                            type: string
+                                                                                            enum:
+                                                                                                - Fatura_Hazirlaniyor
+                                                                                                - Fatura_Imzalaniyor
+                                                                                                - Pdf_Hazirlaniyor
+                                                                                                - Pdf_Imzalaniyor
+                                                                                                - Fatura_Olusturuldu
+                                                                                                - Silindi
+                                                                                        TaxExemptionReason:
+                                                                                            type: string
+                                                                                        TotalDiscountAmount:
+                                                                                            type: number
+                                                                                            format: decimal
+                                                                                        TotalLineExtensionAmount:
+                                                                                            type: number
+                                                                                            format: decimal
+                                                                                        TotalPayableAmount:
+                                                                                            type: number
+                                                                                            format: decimal
+                                                                                        TotalTaxInclusiveAmount:
+                                                                                            type: number
+                                                                                            format: decimal
+                                                                                        TotalVATAmount:
+                                                                                            type: number
+                                                                                            format: decimal
+                                                                                        WebSellingInfo:
+                                                                                            type: string
+                                                                                        XsltTemplate:
+                                                                                            type: string
+                                                                                            format: byte
+                "400":
+                    description: Bad request
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                "401":
+                    description: Unauthorized
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                "403":
+                    description: Forbidden
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                "404":
+                    description: Not Found
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                "500":
+                    description: Internal Server Error
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+    /iptalEtGidenEfatura:
+        post:
+            summary: İptal Et Giden Efatura
+            operationId: iptalEtGidenEfatura
+            security:
+                - ApiKeyAuth: []
+            requestBody:
+                content:
+                    application/soap+xml:
+                        schema:
+                            type: object
+                            properties:
+                                Envelope:
+                                    type: object
+                                    properties:
+                                        Header:
+                                            type: object
+                                            properties:
+                                                Authentication:
+                                                    type: object
+                                                    properties:
+                                                        Kullanici:
+                                                            type: string
+                                                        Sifre:
+                                                            type: string
+                                                        ApiTur:
+                                                            type: string
+                                                        Spy:
+                                                            type: object
+                                                            properties:
+                                                                Spy1:
+                                                                    type: string
+                                                                Spy2:
+                                                                    type: string
+                                                KullaniciBilgileri:
+                                                    type: object
+                                                    properties:
+                                                        xsltEfatura:
+                                                            type: string
+                                                        xsltEarsiv:
+                                                            type: string
+                                                        servisUrl:
+                                                            type: string
+                                                        kullanici:
+                                                            type: string
+                                                        sifre:
+                                                            type: string
+                                                        GelenStokKaydet:
+                                                            type: boolean
+                                                        vtBilgiler:
+                                                            type: object
+                                                            properties:
+                                                                Server:
+                                                                    type: string
+                                                                Port:
+                                                                    type: string
+                                                                Database:
+                                                                    type: string
+                                                                VKullanici:
+                                                                    type: string
+                                                                VSifre:
+                                                                    type: string
+                                                                WebServisMesaj:
+                                                                    type: string
+                                                                WebServisCevap:
+                                                                    type: string
+                                                        EFaturaSeriBaslik:
+                                                            type: string
+                                                        EArsivSeriBaslik:
+                                                            type: string
+                                                        SeciliGBEtiketi:
+                                                            type: string
+                                                        entegrasyonTur:
+                                                            type: string
+                                                            enum:
+                                                                - EFatura
+                                                                - EIrsaliye
+                                                                - BilsoftMail
+                                                                - EMustahsil
+                                                        logoSessionID:
+                                                            type: string
+                                                        logo2FACode:
+                                                            type: string
+                                                        gibMi:
+                                                            type: boolean
+                                                        FirmaVergiNo:
+                                                            type: string
+                                                AutHeader:
+                                                    type: object
+                                                    properties:
+                                                        Donem:
+                                                            type: string
+                                                        VergiNo:
+                                                            type: string
+                                                        VeritabaniAd:
+                                                            type: string
+                                                        KullaniciAdi:
+                                                            type: string
+                                                        Sifre:
+                                                            type: string
+                                                        Sube:
+                                                            type: string
+                                                        IpAdresi:
+                                                            type: string
+                                                        MacAdresi:
+                                                            type: string
+                                                        DovizAktifMi:
+                                                            type: string
+                                        Body:
+                                            type: object
+                                            properties:
+                                                iptalEtGidenEfatura:
+                                                    type: object
+                                                    properties:
+                                                        efaturaNo:
+                                                            type: string
+                                                        fatura_turu:
+                                                            type: string
+                                                        vtKaydet:
+                                                            type: boolean
+                                                        taslakMi:
+                                                            type: boolean
+            responses:
+                "200":
+                    description: successful operation
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    Envelope:
+                                        type: object
+                                        properties:
+                                            Body:
+                                                type: object
+                                                properties:
+                                                    iptalEtGidenEfaturaResponse:
+                                                        type: object
+                                                        properties:
+                                                            iptalEtGidenEfaturaResult:
+                                                                type: object
+                                                                properties:
+                                                                    basariliMi:
+                                                                        type: boolean
+                                                                    mesaj:
+                                                                        type: string
+                                                                    veri:
+                                                                        type: string
+                                                                    efaturaNo:
+                                                                        type: string
+                                                                    efaturaId:
+                                                                        type: string
+                                                                    efaturaSenaryo:
+                                                                        type: string
+                                                                    fisNo:
+                                                                        type: integer
+                                                                    evrakNo:
+                                                                        type: string
+                                                                    efaturaDurum:
+                                                                        type: string
+                "400":
+                    description: Bad request
+                    content:
+                        application/soap+xml:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
 components:
     securitySchemes:
         ApiKeyAuth:
