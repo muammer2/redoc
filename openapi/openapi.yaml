@@ -31,6 +31,27 @@ paths:
                 $ref: '#/components/schemas/AktivasyonEkleResponse'
         "400":
           description: Hatalı istek
+  /FaturaIsaretleme:
+    post:
+      summary: Fatura işaretleme
+      operationId: faturaIsaretleme
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaturaIsaretlemeRequest'
+        required: true
+      responses:
+        "200":
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaturaIsaretlemeResponse'
+        "400":
+          description: Hatalı istek
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -253,3 +274,80 @@ components:
       properties:
         Envelope:
           $ref: '#/components/schemas/AktivasyonEkleResponse_Envelope'
+    FaturaIsaretlemeRequest:
+      type: object
+      properties:
+        Envelope:
+          $ref: '#/components/schemas/FaturaIsaretlemeRequest_Envelope'
+    FaturaIsaretlemeRequest_Envelope:
+      type: object
+      properties:
+        Header:
+          $ref: '#/components/schemas/AktivasyonEkleRequest_Envelope_Header'
+        Body:
+          $ref: '#/components/schemas/FaturaIsaretlemeRequest_Envelope_Body'
+    FaturaIsaretlemeRequest_Envelope_Body:
+      type: object
+      properties:
+        FaturaIsaretleme:
+          $ref: '#/components/schemas/FaturaIsaretlemeRequest_Envelope_Body_FaturaIsaretleme'
+    FaturaIsaretlemeRequest_Envelope_Body_FaturaIsaretleme:
+      type: object
+      properties:
+        ettn:
+          type: string
+        isaretlemeEnum:
+          type: string
+          enum:
+            - ARSIVLENDI
+            - OKUNDU
+            - MUHASEBELESTIRILDI
+            - AKTARILDI
+            - YAZDIRILDI
+            - TASLAKIPTAL
+            - GIB_IPTAL
+        isaretlemeValueInt:
+          type: integer
+        uygulamaTuru:
+          type: integer
+    FaturaIsaretlemeResponse:
+      type: object
+      properties:
+        Envelope:
+          $ref: '#/components/schemas/FaturaIsaretlemeResponse_Envelope'
+    FaturaIsaretlemeResponse_Envelope:
+      type: object
+      properties:
+        Body:
+          $ref: '#/components/schemas/FaturaIsaretlemeResponse_Envelope_Body'
+    FaturaIsaretlemeResponse_Envelope_Body:
+      type: object
+      properties:
+        FaturaIsaretlemeResponse:
+          $ref: '#/components/schemas/FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaretlemeResponse'
+    FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaretlemeResponse:
+      type: object
+      properties:
+        FaturaIsaretlemeResult:
+          $ref: '#/components/schemas/FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaretlemeResponse_FaturaIsaretlemeResult'
+    FaturaIsaretlemeResponse_Envelope_Body_FaturaIsaretlemeResponse_FaturaIsaretlemeResult:
+      type: object
+      properties:
+        basariliMi:
+          type: boolean
+        mesaj:
+          type: string
+        veri:
+          type: string
+        efaturaNo:
+          type: string
+        efaturaId:
+          type: string
+        efaturaSenaryo:
+          type: string
+        fisNo:
+          type: integer
+        evrakNo:
+          type: string
+        efaturaDurum:
+          type: string
