@@ -73,27 +73,6 @@ paths:
                 $ref: '#/components/schemas/GetLogo2FACodeResponse'
         "400":
           description: Hatalı istek
-  /GibUblOnizleme:
-    post:
-      summary: GIB UBL Önizleme
-      operationId: gibUblOnizleme
-      security:
-        - ApiKeyAuth: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GibUblOnizlemeRequest'
-        required: true
-      responses:
-        "200":
-          description: Başarılı
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GibUblOnizlemeResponse'
-        "400":
-          description: Hatalı istek
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -456,74 +435,3 @@ components:
           type: string
         efaturaDurum:
           type: string
-    GibUblOnizlemeRequest:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/GibUblOnizlemeRequest_Envelope'
-    GibUblOnizlemeRequest_Envelope:
-      type: object
-      properties:
-        Body:
-          $ref: '#/components/schemas/GibUblOnizlemeRequest_Envelope_Body'
-    GibUblOnizlemeRequest_Envelope_Body:
-      type: object
-      properties:
-        GibUblOnizleme:
-          $ref: '#/components/schemas/GibUblOnizlemeRequest_Envelope_Body_GibUblOnizleme'
-    GibUblOnizlemeRequest_Envelope_Body_GibUblOnizleme:
-      type: object
-      properties:
-        xmlData:
-          type: string
-        xsltTasarim:
-          type: string
-    GibUblOnizlemeResponse:
-      type: object
-      properties:
-        Envelope:
-          $ref: '#/components/schemas/GibUblOnizlemeResponse_Envelope'
-    GibUblOnizlemeResponse_Envelope:
-      type: object
-      properties:
-        Body:
-          $ref: '#/components/schemas/GibUblOnizlemeResponse_Envelope_Body'
-    GibUblOnizlemeResponse_Envelope_Body:
-      type: object
-      properties:
-        GibUblOnizlemeResponse:
-          $ref: '#/components/schemas/GibUblOnizlemeResponse_Envelope_Body_GibUblOnizlemeResponse'
-    GibUblOnizlemeResponse_Envelope_Body_GibUblOnizlemeResponse:
-      type: object
-      properties:
-        GibUblOnizlemeResult:
-          $ref: '#/components/schemas/GibUblOnizlemeResponse_Envelope_Body_GibUblOnizlemeResponse_GibUblOnizlemeResult'
-    GibUblOnizlemeResponse_Envelope_Body_GibUblOnizlemeResponse_GibUblOnizlemeResult:
-      type: object
-      properties:
-        basariliMi:
-          type: boolean
-        mesaj:
-          type: string
-        veri:
-          type: string
-        efaturaNo:
-          type: string
-        efaturaId:
-          type: string
-        efaturaSenaryo:
-          type: string
-        fisNo:
-          type: integer
-        evrakNo:
-          type: string
-        efaturaDurum:
-          type: string
-"""
-
-# Save the OpenAPI spec to a YAML file
-file_path = "/mnt/data/complete_bilsoft_efatura_api.yaml"
-with open(file_path, "w") as file:
-    file.write(full_openapi_spec)
-
-file_path
